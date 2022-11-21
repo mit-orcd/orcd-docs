@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORCD Systems &mdash; MIT ORCD User Documentation  documentation</title>
+  <title>Basic software and package installation &mdash; MIT ORCD User Documentation  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <link rel="canonical" href="https://researchcomputing.mit.edu/orcd_systems/index.html"/>
+    <link rel="canonical" href="https://researchcomputing.mit.edu/basic_software_and_package_installation/index.html"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Engaging Cluster" href="engaging/index.html" />
-    <link rel="prev" title="MIT Office of Research Computing and Data Hands On Help Pages" href="../index.html" /> 
+    <link rel="next" title="Running Jobs" href="../running_jobs/index.html" />
+    <link rel="prev" title="Good Practices when using cluster filesystems" href="../filesystems_and_file_transfer/best_practices/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,21 +41,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ORCD Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="engaging/index.html">Engaging Cluster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="engaging/index.html#getting-access">Getting Access</a></li>
-<li class="toctree-l3"><a class="reference internal" href="engaging/index.html#quick-links">Quick Links</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../orcd_systems/index.html">ORCD Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../orcd_systems/engaging/index.html">Engaging Cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/engaging/index.html#getting-access">Getting Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/engaging/index.html#quick-links">Quick Links</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="satori/index.html">Satori</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="satori/index.html#how-to-get-an-account">How to Get an Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="satori/index.html#quick-links">Quick Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../orcd_systems/satori/index.html">Satori</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/satori/index.html#how-to-get-an-account">How to Get an Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/satori/index.html#quick-links">Quick Links</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="supercloud/index.html">SuperCloud</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="supercloud/index.html#how-to-get-an-account">How to Get an Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="supercloud/index.html#quick-links">Quick Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../orcd_systems/supercloud/index.html">SuperCloud</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/supercloud/index.html#how-to-get-an-account">How to Get an Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../orcd_systems/supercloud/index.html#quick-links">Quick Links</a></li>
 </ul>
 </li>
 </ul>
@@ -70,8 +70,8 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_software_and_package_installation/index.html">Basic software and package installation</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic software and package installation</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../running_jobs/index.html">Running Jobs</a></li>
@@ -94,9 +94,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">ORCD Systems</li>
+      <li class="breadcrumb-item active">Basic software and package installation</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/mit-orcd/orcd-docs-edit/blob/main/orcd_systems/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mit-orcd/orcd-docs-edit/blob/main/basic_software_and_package_installation/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -104,37 +104,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="orcd-systems">
-<h1>ORCD Systems<a class="headerlink" href="#orcd-systems" title="Permalink to this heading"></a></h1>
-<p>ORCD operates a number of cluster computer systems available to all researchers. They all run with a Slurm scheduler
-and most have a web portal for interactive computing. These are Engaging, SuperCloud, and Satori.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="engaging/index.html">Engaging Cluster</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="engaging/index.html#getting-access">Getting Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="engaging/index.html#quick-links">Quick Links</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="satori/index.html">Satori</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="satori/index.html#how-to-get-an-account">How to Get an Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="satori/index.html#quick-links">Quick Links</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="supercloud/index.html">SuperCloud</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="supercloud/index.html#how-to-get-an-account">How to Get an Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supercloud/index.html#quick-links">Quick Links</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="basic-software-and-package-installation">
+<h1>Basic software and package installation<a class="headerlink" href="#basic-software-and-package-installation" title="Permalink to this heading"></a></h1>
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="MIT Office of Research Computing and Data Hands On Help Pages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="engaging/index.html" class="btn btn-neutral float-right" title="Engaging Cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../filesystems_and_file_transfer/best_practices/index.html" class="btn btn-neutral float-left" title="Good Practices when using cluster filesystems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../running_jobs/index.html" class="btn btn-neutral float-right" title="Running Jobs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
