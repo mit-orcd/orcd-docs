@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://orcd.mit.edu/tags/</loc>
+         <lastmod>2023-05-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://orcd.mit.edu/filesystems-file-transfer/project-filesystems/</loc>
          <lastmod>2023-05-23</lastmod>
          <changefreq>daily</changefreq>
@@ -27,6 +32,11 @@
     </url>
     <url>
          <loc>https://orcd.mit.edu/recipes/mujoco/</loc>
+         <lastmod>2023-05-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://orcd.mit.edu/tags/</loc>
          <lastmod>2023-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
