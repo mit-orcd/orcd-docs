@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://orcd.mit.edu/recipes/gromacs/</loc>
+         <lastmod>2023-08-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://orcd.mit.edu/recipes/h100_getting_started/</loc>
          <lastmod>2023-08-11</lastmod>
          <changefreq>daily</changefreq>
