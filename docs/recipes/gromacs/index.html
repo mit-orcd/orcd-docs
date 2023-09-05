@@ -584,8 +584,8 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>source ~/gromacs/2023.2/install/bin/GMXRC
 </span></code></pre></div></p>
 <h3 id="run-gromacs">Run GROMACS</h3>
-<p>First prepare for an input file. Refer to <a href="https://manual.gromacs.org/documentation/5.1/user-guide/file-formats.html">file formats</a>. Here shows an example with the input file <code>benchPEP-h.tpr</code> dowloaded from <a href="https://www.mpinat.mpg.de/grubmueller/bench">this page</a>.</p>
-<p>Edit a batch job script (for example, named <code>job.sh</code>) for 2 node with 4 CPU cores and 2 GPUs per node.
+<p>Firstly, prepare for an input file. Refer to <a href="https://manual.gromacs.org/documentation/5.1/user-guide/file-formats.html">file formats</a>. Here shows an example with an input file named <code>benchPEP-h.tpr</code> dowloaded from <a href="https://www.mpinat.mpg.de/grubmueller/bench">this page</a>.</p>
+<p>Secondly, edit a batch job script, for example, named <code>job.sh</code>, requesting 2 node with 4 CPU cores and 2 GPUs per node.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>#!/bin/bash
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>#SBATCH --nodes=2              # 2 nodes
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>#SBATCH --ntasks-per-node=2    # 2 MPI tasks per node
@@ -594,7 +594,7 @@
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>#SBATCH --time=01:00:00        # 1 hour
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a># load the required modules
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a># Load required modules
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>module load cuda/11.8 mpi/openmpi-4.1.5
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a># Allow GROMACS to see GPUs
@@ -614,10 +614,10 @@
 </span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a># Run GROMACS
 </span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>mpirun gmx_mpi mdrun -s ~/gromacs/bench/benchPEP-h.tpr -ntomp ${SLURM_CPUS_PER_TASK} -pme gpu -update gpu -bonded gpu -npme 1
 </span></code></pre></div></p>
-<p>Submit the job,
+<p>Finally, submit the job,
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sbatch job.sh
 </span></code></pre></div></p>
-<p>Refer to the <a href="https://manual.gromacs.org/documentation/5.1/user-guide/index.html">GROMACS user guide</a> for more info.</p>
+<p>Refer to <a href="https://manual.gromacs.org/documentation/5.1/user-guide/index.html">GROMACS user guide</a> for more info.</p>
 
   <hr>
 <div class="md-source-file">
