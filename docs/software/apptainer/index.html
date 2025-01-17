@@ -1470,11 +1470,20 @@ The terms in <code>&lt;&gt;</code> are must-needed while the term in <code>[]</c
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 </span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>&gt;&gt;&gt; import pandas as pd
 </span></code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Engaging</label><label for="__tabbed_4_2">OpenMind</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>The flag <code>--writable</code> is to enable the write permission to modify files in the container. </p>
+</div>
+<div class="tabbed-block">
+<p>The flags <code>--fakeroot --writable</code> is to enable the write permission to modify files in the container. </p>
 <details class="note">
 <summary>Note</summary>
 <p>The <code>apt-get</code> command is to install software in the Ubuntu OS. This is supported by the by the <code>fakeroot</code> package, which is installed on node115 on OpenMind. Users need to install <code>fakeroot</code> in their home directories.  </p>
 </details>
+</div>
+</div>
+</div>
 <p>Once the needed package are built in the image, you can use it as was shown in the preivious sections. </p>
 <p>Alternatively, you can build a container image on other machines on which you have <code>root</code> or <code>sudo</code> access. One way is to build a Docker image on a laptop/desktop such as MAC or PC. Another way is to build a Singularity image on a Linux machine that has Apptainer/Singularity installed. Once the image is built completely, transfer it to the cluster, and run it with Singularity.</p>
 
@@ -1497,7 +1506,7 @@ The terms in <code>&lt;&gt;</code> are must-needed while the term in <code>[]</c
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 17, 2025</span>
   </span>
 
     
