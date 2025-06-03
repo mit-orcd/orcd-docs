@@ -1685,11 +1685,11 @@
 
 
 
-<h1 id="deep-learning-with-pytorch-on-gpus">Deep Learning with PyTorch on GPUs</h1>
+<h1 id="deep-learning-with-pytorch-on-gpus">Deep Learning with PyTorch on GPUs<a class="headerlink" href="#deep-learning-with-pytorch-on-gpus" title="Permanent link">&para;</a></h1>
 <p>Deep learning is the foundation of artificial intelligence nowadays. Deep learning programs can be accelerated substantially on GPUs. </p>
 <p>PyTorch is a popular Python package for working on deep learning projects.</p>
 <p>This page introduces recipes to run deep-learning programs on GPUs with Pytorch. </p>
-<h2 id="installing-pytorch">Installing PyTorch</h2>
+<h2 id="installing-pytorch">Installing PyTorch<a class="headerlink" href="#installing-pytorch" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1705,7 +1705,7 @@
 </div>
 </div>
 </div>
-<h2 id="pytorch-on-cpu-and-a-single-gpu">PyTorch on CPU and a single GPU</h2>
+<h2 id="pytorch-on-cpu-and-a-single-gpu">PyTorch on CPU and a single GPU<a class="headerlink" href="#pytorch-on-cpu-and-a-single-gpu" title="Permanent link">&para;</a></h2>
 <p>We start with a recipe to run PyTorch on CPU and a single GPU.</p>
 <p>We use an example code training a convolutional neural network (CNN) with the CIFAR10 data set. Refer to <a href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">description of this example</a>. Download the codes <a href="../scripts/torch-gpu/cnn_cifar10_cpu.py">for CPU</a> and <a href="../scripts/torch-gpu/cnn_cifar10_gpu.py">for GPU</a>. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Engaging</label></div>
@@ -1744,14 +1744,14 @@ and then log in the node,
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh &lt;nodeXXX&gt;
 </span></code></pre></div>
 and check the GPU usage with the <code>nvtop</code> command.</p>
-<h2 id="pytorch-on-multiple-gpus">PyTorch on multiple GPUs</h2>
+<h2 id="pytorch-on-multiple-gpus">PyTorch on multiple GPUs<a class="headerlink" href="#pytorch-on-multiple-gpus" title="Permanent link">&para;</a></h2>
 <p>Deep learning programs can be further accelerated on multiple GPUs. </p>
 <p>There are various parallelisms to enable distributed deep learning on multiple GPUs, including data parallel and model parallel. We will focus on data parallel on this page.   </p>
 <p>Data parallel allows training a model with multiple batches of data simultaneously. The model has to fit into the GPU memory.</p>
 <p>On a cluster, there are many nodes and multiple GPUs on each node. We will first introduce a recipe to run PyTorch programs with multiple GPUs within one node, and then extend it to multiple nodes. </p>
 <p>We use an example code that trains a linear network with a random data set, which is implemented with the <a href="https://PyTorch.org/docs/stable/notes/ddp.html">Distributed Data Parallel</a> package in PyTorch. Refer to the description of this example <a href="https://pytorch.org/tutorials/beginner/ddp_series_multigpu.html">for multiple GPUs within one node</a> and <a href="https://pytorch.org/tutorials/intermediate/ddp_series_multinode.html">for multiple GPUs across multiple nodes</a>. </p>
 <p>Download the codes for this example: <a href="../scripts/torch-gpu/datautils.py">datautils.py</a>, <a href="../scripts/torch-gpu/multigpu.py">multigpu.py</a>, <a href="../scripts/torch-gpu/multigpu_torchrun.py">multigpu_torchrun.py</a>, and <a href="../scripts/torch-gpu/multinode.py">multinode.py</a>.</p>
-<h3 id="single-node-multi-gpu-data-parallel">Single-node multi-GPU data parallel</h3>
+<h3 id="single-node-multi-gpu-data-parallel">Single-node multi-GPU data parallel<a class="headerlink" href="#single-node-multi-gpu-data-parallel" title="Permanent link">&para;</a></h3>
 <p>In this section, we introduce a recipe for single-node multi-GPU data parallel. The program <code>multigpu.py</code> is set up for this purpose. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Engaging</label></div>
 <div class="tabbed-content">
@@ -1794,7 +1794,7 @@ and check the GPU usage with the <code>nvtop</code> command.</p>
 <summary>GPU communication within one node</summary>
 <p>The NVIDIA Collective Communications Library (NCCL) is set as the backend in the PyTorch programs <code>multigpu.py</code> and <code>multigpu_torchrun.py</code>, so that the data communication between GPUs within one node benefits from the high bandwidth of NVLinks.  </p>
 </details>
-<h3 id="multi-node-multi-gpu-data-parallel">Multi-node multi-GPU data parallel</h3>
+<h3 id="multi-node-multi-gpu-data-parallel">Multi-node multi-GPU data parallel<a class="headerlink" href="#multi-node-multi-gpu-data-parallel" title="Permanent link">&para;</a></h3>
 <p>Now we extend the above example to multi-node multi-GPU data parallel. The program <code>multinode.py</code> is set up for this purpose.</p>
 <p>There are two key points in this approach.</p>
 <ol>

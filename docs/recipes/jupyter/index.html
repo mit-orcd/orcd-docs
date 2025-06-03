@@ -1757,16 +1757,16 @@
 
 
 
-<h1 id="jupyter-notebooks">Jupyter Notebooks</h1>
+<h1 id="jupyter-notebooks">Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permanent link">&para;</a></h1>
 <p>Jupyter notebooks provide a way to run code in an interactive environment. While
 most prominently used for <a href="../../software/python/">Python</a>, Jupyter supports a
 range of languages, such as <a href="../../software/julia/">Julia</a> and
 <a href="../../software/R/">R</a>.</p>
-<h2 id="choosing-an-approach">Choosing an Approach</h2>
+<h2 id="choosing-an-approach">Choosing an Approach<a class="headerlink" href="#choosing-an-approach" title="Permanent link">&para;</a></h2>
 <p>There are multiple ways to run Jupyter notebooks on the computing clusters
 available through ORCD. The route you choose depends on your needs and level of
 familiarity with high performance computing environments.</p>
-<h3 id="web-portal">Web Portal</h3>
+<h3 id="web-portal">Web Portal<a class="headerlink" href="#web-portal" title="Permanent link">&para;</a></h3>
 <p>The most straightforward way to run a Jupyter notebook on one of our computing
 clusters is to use the cluster's web portal. While this route is the easiest
 to set up, it can be limiting if you want more control over your environment
@@ -1850,7 +1850,7 @@ for more information.</p>
 </div>
 </div>
 </div>
-<h3 id="vs-code">VS Code</h3>
+<h3 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h3>
 <p>First, follow <a href="../vscode/">these instructions</a> to set up VS Code to run on a
 compute node.</p>
 <p>Open a Jupyter notebook and click the top right button to select a kernel. You
@@ -1858,7 +1858,7 @@ can select "Python Environments" for any Conda environments or "Jupyter Kernel"
 to find Julia or R environments. If you have installed R with Conda, you can
 find your Conda environment under "Jupyter Kernel." <code>jupyterlab</code> must be
 installed to your Conda environment.</p>
-<h3 id="port-forwarding">Port Forwarding</h3>
+<h3 id="port-forwarding">Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permanent link">&para;</a></h3>
 <p>Port forwarding offers the most flexibility in setting up your Jupyter notebook
 but the setup is slightly more involved. With port forwarding, the rendering
 is handled through your internet browser while computation is done on the
@@ -1979,8 +1979,8 @@ copy the link that was given to you earlier:</p>
 <p>Now you can open a Jupyter notebook and select your kernel from the top right
 corner. The Python environment is the same environment you used to run the
 notebook.</p>
-<h2 id="language-specific-instructions">Language-Specific Instructions</h2>
-<h3 id="julia">Julia</h3>
+<h2 id="language-specific-instructions">Language-Specific Instructions<a class="headerlink" href="#language-specific-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="julia">Julia<a class="headerlink" href="#julia" title="Permanent link">&para;</a></h3>
 <p>You will need to add the <code>IJulia</code> package to your environment for Jupyter to
 recognize the Julia kernel. You can do so from the command line:</p>
 <p><div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>module<span class="w"> </span>load<span class="w"> </span>julia
@@ -1994,7 +1994,7 @@ recognize the Julia kernel. You can do so from the command line:</p>
 package is installed, then the Julia kernel should be visible regardless of the
 Conda environment from which you run your Jupyter notebook.</p>
 <p>See our <a href="../../software/julia/">Julia documentation</a> for more information.</p>
-<h3 id="r">R</h3>
+<h3 id="r">R<a class="headerlink" href="#r" title="Permanent link">&para;</a></h3>
 <p>To run R in a Jupyter notebook, you need to create a Conda environment with
 both <code>r-irkernel</code> and <code>jupyterlab</code> installed:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Engaging</label><label for="__tabbed_5_2">Satori</label><label for="__tabbed_5_3">SuperCloud</label></div>
@@ -2022,11 +2022,11 @@ both <code>r-irkernel</code> and <code>jupyterlab</code> installed:</p>
 <p>Most R packages are available through Conda, so feel free to install other
 packages you need to this environment.</p>
 <p>See our <a href="../../software/R/">R documentation</a> for more information.</p>
-<h3 id="python">Python</h3>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
 <p>To run Python Jupyter notebooks, install <code>jupyterlab</code> to whatever Conda
 environment that contains the packages you need.</p>
 <p>See our <a href="../../software/python/">Python documentation</a> for more information.</p>
-<h2 id="faqs">FAQs</h2>
+<h2 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h2>
 <p><strong>How do I run a Jupyter notebook with a GPU?</strong></p>
 <p>The cluster web portals offer an option to allocate a GPU to your Jupyter
 session. If you would like to use a different partition, however, then follow

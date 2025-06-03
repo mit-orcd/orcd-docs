@@ -1715,7 +1715,7 @@
 
 
 
-<h1 id="running-your-own-retrieval-augmented-generation-rag-model">Running Your Own Retrieval-Augmented Generation (RAG) Model</h1>
+<h1 id="running-your-own-retrieval-augmented-generation-rag-model">Running Your Own Retrieval-Augmented Generation (RAG) Model<a class="headerlink" href="#running-your-own-retrieval-augmented-generation-rag-model" title="Permanent link">&para;</a></h1>
 <p>RAG models harness the power of Large Language Models (LLMs) to query and
 summarize a set of documents. Through RAG, one can combine the strengths of
 retrieval-based and generative models to provide more accurate and contextually
@@ -1727,8 +1727,8 @@ answer questions about <a href="https://orcd-docs.mit.edu/">our ORCD documentati
 <a href="https://github.com/mit-orcd/orcd-rag">GitHub repository</a>. Feel free to use
 this repository as a guide to develop your own RAG model on separate
 documents.</p>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="working-on-a-compute-node">Working on a Compute Node</h3>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="working-on-a-compute-node">Working on a Compute Node<a class="headerlink" href="#working-on-a-compute-node" title="Permanent link">&para;</a></h3>
 <p>We require that you run this model on a compute node. You can request an
 interactive session on a compute node with the following command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span>mit_normal<span class="w"> </span>--mem<span class="o">=</span>48G
@@ -1739,7 +1739,7 @@ partition on Engaging with a GPU, then specify your partition as such:</p>
 </span></code></pre></div>
 <p>I have specified an L40S GPU, which has 48GB of memory. You will need a GPU with
 at least 40GB of memory for this model to work.</p>
-<h3 id="getting-access-to-huggingface">Getting Access to HuggingFace</h3>
+<h3 id="getting-access-to-huggingface">Getting Access to HuggingFace<a class="headerlink" href="#getting-access-to-huggingface" title="Permanent link">&para;</a></h3>
 <p>The LLMs used in this pipeline are from HuggingFace. By default, we use Llama
 3.1, which is gated and requires users to request access. You can follow this
 process for doing so:</p>
@@ -1770,8 +1770,8 @@ time you run this.</p>
 </div>
 </li>
 </ol>
-<h2 id="running-the-model">Running the Model</h2>
-<h3 id="running-in-a-container">Running in a Container</h3>
+<h2 id="running-the-model">Running the Model<a class="headerlink" href="#running-the-model" title="Permanent link">&para;</a></h2>
+<h3 id="running-in-a-container">Running in a Container<a class="headerlink" href="#running-in-a-container" title="Permanent link">&para;</a></h3>
 <p>You can run the RAG model on our documentation using the Apptainer image we have
 saved to Engaging. We have the commands for doing so saved in a
 <a href="https://github.com/mit-orcd/orcd-rag/blob/main/container/run_container.sh">shell script</a>.
@@ -1792,7 +1792,7 @@ something like this:</p>
 <p>or:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HOME</span><span class="o">=</span>/nobackup1/<span class="nv">$USER</span>
 </span></code></pre></div>
-<h3 id="running-via-a-python-environment">Running via a Python Environment</h3>
+<h3 id="running-via-a-python-environment">Running via a Python Environment<a class="headerlink" href="#running-via-a-python-environment" title="Permanent link">&para;</a></h3>
 <p>You can avoid the container route and run this using a Python environment. The
 steps to do so can be found on the
 <a href="https://github.com/mit-orcd/orcd-rag">GitHub repository</a>.</p>

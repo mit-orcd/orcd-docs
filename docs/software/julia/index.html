@@ -1775,7 +1775,7 @@
 
 
 
-<h1 id="julia">Julia</h1>
+<h1 id="julia">Julia<a class="headerlink" href="#julia" title="Permanent link">&para;</a></h1>
 <p>Julia is a high-level, high-performance programming language designed for
 technical and numerical computing, known for its speed and ease of use. Because
 of its popularity, we have pre-installed versions of Julia on each of our
@@ -1801,7 +1801,7 @@ or by specifying the module specifically:</p>
 </div>
 </div>
 </div>
-<h2 id="installing-packages">Installing Packages</h2>
+<h2 id="installing-packages">Installing Packages<a class="headerlink" href="#installing-packages" title="Permanent link">&para;</a></h2>
 <p>Julia organizes packages by the version of Julia you're running. When you
 install packages, a <code>.julia</code> folder automatically gets created in your home
 directory that holds all package installations. Julia will automatically create
@@ -1811,7 +1811,7 @@ an environment for that version, which will be saved in <code>~/.julia/environme
 Julia. For example:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JULIA_DEPOT_PATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/orcd/r8/pool
 </span></code></pre></div>
-<h2 id="juliaup">Juliaup</h2>
+<h2 id="juliaup">Juliaup<a class="headerlink" href="#juliaup" title="Permanent link">&para;</a></h2>
 <p>Juliaup provides a convenient way to manage different versions of Julia and
 different package installations. It can be installed by running the following
 command:</p>
@@ -1854,8 +1854,8 @@ installing and using Juliaup.</p>
 <p class="admonition-title">Note</p>
 <p>Currently, Juliaup is not compatible with Satori or SuperCloud.</p>
 </div>
-<h2 id="using-different-julia-versions">Using Different Julia Versions</h2>
-<h3 id="juliaup-versions">Juliaup Versions</h3>
+<h2 id="using-different-julia-versions">Using Different Julia Versions<a class="headerlink" href="#using-different-julia-versions" title="Permanent link">&para;</a></h2>
+<h3 id="juliaup-versions">Juliaup Versions<a class="headerlink" href="#juliaup-versions" title="Permanent link">&para;</a></h3>
 <p>If you're using <a href="#juliaup">Juliaup</a>, installing different versions of Julia is
 straightforward:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Install Julia 1.9.0:</span>
@@ -1864,7 +1864,7 @@ straightforward:</p>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>julia<span class="w"> </span>+1.9.0
 </span></code></pre></div>
 <p>Note that Juliaup installs versions and packages to your <code>.julia</code> folder.</p>
-<h3 id="manual-installation">Manual Installation</h3>
+<h3 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link">&para;</a></h3>
 <p>If you are unable to use Juliaup and you need a version of Julia that is not
 pre-installed on the cluster, you can manually download it.</p>
 <p>A complete list of previous Julia versions can be found
@@ -1885,7 +1885,7 @@ select the version for a Linux operating system and x86_64 architecture.</p>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>tar<span class="w"> </span>-xvzf<span class="w"> </span>julia-1.9.0-linux-x86_64.tar.gz
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;~/julia-1.9.0/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </span></code></pre></div></p>
-<h2 id="jupyter-notebooks">Jupyter Notebooks</h2>
+<h2 id="jupyter-notebooks">Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permanent link">&para;</a></h2>
 <p>While Jupyter is heavily integrated with Python, it supports compatibility with
 Julia. You can run Jupyter notebooks on the web portals of
 <a href="https://txe1-portal.mit.edu/">SuperCloud</a> and
@@ -1915,7 +1915,7 @@ notebook and select a Julia kernel.</p>
 </div>
 </div>
 </div>
-<h3 id="port-forwarding">Port Forwarding</h3>
+<h3 id="port-forwarding">Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permanent link">&para;</a></h3>
 <p>If you would like to use a different version of Julia that is not offered
 as a module, we suggest running a Jupyter notebook manually via port forwarding.
 This involves running the notebook on a compute node, and then accessing the
@@ -1970,14 +1970,14 @@ same number:</p>
 copy the link that was given to you earlier:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>http://127.0.0.1:8888/lab?token=7e97d59f9a17c91c11289bc5bec35ad3921725c6db55fe33
 </span></code></pre></div>
-<h3 id="vs-code">VS Code</h3>
+<h3 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h3>
 <p>Please refer to the <a href="../../recipes/vscode/">VS Code page</a> for using VS Code on
 the cluster.</p>
 <p>VS Code supports compatibility with Jupyter notebooks. If you have installed
 and built <code>IJulia</code> in your Julia environment, then you should be able to find
 the correct Julia kernel by navigating to <code>Select Kernel</code> &gt;
 <code>Select Another Kernel</code> &gt; <code>Jupyter Kernel</code>.</p>
-<h2 id="faqs">FAQs</h2>
+<h2 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h2>
 <p><strong>I have loaded/installed a specific version of Julia, but it is not being recognized. What do I do?</strong></p>
 <p>There may be another/no version of Julia in your <code>PATH</code> environment variable.
 You can check this by running <code>echo $PATH</code>.</p>

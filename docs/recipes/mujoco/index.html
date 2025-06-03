@@ -1637,11 +1637,11 @@
 
 
 
-<h1 id="installing-and-using-mujoco">Installing and Using MuJoCo</h1>
+<h1 id="installing-and-using-mujoco">Installing and Using MuJoCo<a class="headerlink" href="#installing-and-using-mujoco" title="Permanent link">&para;</a></h1>
 <p>MuJoCo is a free and open source physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, and other areas where fast and accurate simulation is needed.</p>
 <p>You can learn about MuJoCo here: <a href="https://mujoco.org">https://mujoco.org</a>.</p>
 <p>Whether you are installing on Engaging or SuperCloud, you’ll first have to install the MuJoCo binaries. This process is the same on all systems.</p>
-<h2 id="install-the-mujoco-binaries">Install the MuJoCo Binaries</h2>
+<h2 id="install-the-mujoco-binaries">Install the MuJoCo Binaries<a class="headerlink" href="#install-the-mujoco-binaries" title="Permanent link">&para;</a></h2>
 <p>First, install MuJoCo itself somewhere in your home directory. This is as simple as downloading the MuJoCo binaries, which can be found on their web page. For the release that you want, select the file that ends with “linux-x86_64.tar.gz”, for example for 2.3.0 select <a href="https://github.com/deepmind/mujoco/releases/download/2.3.0/mujoco-2.3.0-linux-x86_64.tar.gz">mujoco-2.3.0-linux-x86_64.tar.gz</a>. Right click, and copy the link address. Then you can download on one of the login nodes with the “wget” command, and untar:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://github.com/deepmind/mujoco/releases/download/2.3.0/mujoco-2.3.0-linux-x86_64.tar.gz
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>mujoco-2.3.0-linux-x86_64.tar.gz
@@ -1650,7 +1650,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MUJOCO_PY_MUJOCO_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/path/to/mujoco230/
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$MUJOCO_PY_MUJOCO_PATH</span>/bin
 </span></code></pre></div>
-<h2 id="install-mujoco-py">Install Mujoco-Py</h2>
+<h2 id="install-mujoco-py">Install Mujoco-Py<a class="headerlink" href="#install-mujoco-py" title="Permanent link">&para;</a></h2>
 <p>First, make sure the <code>MUJOCO_PY_MUJOCO_PATH</code> and <code>LD_LIBRARY_PATH</code> environment variables are set pointing to your mujoco installation. You can use the “echo” command to do this:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span>MUJOCO_PY_MUJOCO_PATH
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">echo</span><span class="w"> </span>LD_LIBRARY_PATH
@@ -1708,7 +1708,7 @@
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">qpos</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="using-mujoco-in-a-job">Using MuJoCo in a Job</h2>
+<h2 id="using-mujoco-in-a-job">Using MuJoCo in a Job<a class="headerlink" href="#using-mujoco-in-a-job" title="Permanent link">&para;</a></h2>
 <p>To use MuJoCo you’ll need to first load the same Python or Anaconda module you used to install mujoco-py. If you installed it into a conda environment or python virtual environment, load that environment as well. We recommend you do this in your job submission script rather than in your .bashrc or at the command line before you submit the job. This way you know your job is configured properly every time it runs.</p>
 <p>You can use the following test scripts to test your MuJoCo setup in a job environment, and as a starting point for your own job:</p>
 <div class="language-py highlight"><span class="filename">mujoco_test.py</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">mujoco_py</span>

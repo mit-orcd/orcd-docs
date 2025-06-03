@@ -1769,13 +1769,13 @@
 
 
 
-<h1 id="example-of-a-minimal-program-using-the-nvhpc-stack-with-cuda-aware-mpi">Example of a minimal program using the nvhpc stack with CUDA aware MPI</h1>
-<h2 id="about-nvhpc">About NVHPC</h2>
+<h1 id="example-of-a-minimal-program-using-the-nvhpc-stack-with-cuda-aware-mpi">Example of a minimal program using the nvhpc stack with CUDA aware MPI<a class="headerlink" href="#example-of-a-minimal-program-using-the-nvhpc-stack-with-cuda-aware-mpi" title="Permanent link">&para;</a></h1>
+<h2 id="about-nvhpc">About NVHPC<a class="headerlink" href="#about-nvhpc" title="Permanent link">&para;</a></h2>
 <p>NVHPC is an integrated collection of software tools and libraries distributed by NVidia. An overview document describing nvhpc 
 can be found <a href="https://developer.nvidia.com/hpc-sdk">here</a>.
 The aim of the NVHPC team is to provide up to date, preconfigured suites of compilers, libraries and tools that are 
 specifically optimized for NVidia GPU hardware. It supports single and multi-GPU execution.</p>
-<h2 id="basic-usage-example">Basic Usage Example</h2>
+<h2 id="basic-usage-example">Basic Usage Example<a class="headerlink" href="#basic-usage-example" title="Permanent link">&para;</a></h2>
 <p>This example shows steps for using NVHPC to run a simple test MPI program, written in C, that communicates between two GPUs.
 The detailed steps, that can be executed in an interactive Slurm session, are explained 
 below.  A complete Slurm job example is shown at the end.</p>
@@ -1783,7 +1783,7 @@ below.  A complete Slurm job example is shown at the end.</p>
 <p class="admonition-title">Prerequisites</p>
 <p>This example assumes you have access to a Slurm partition with GPU resources and if using Engaging are working with a Rocky Linux environment.</p>
 </div>
-<h4 id="1-activate-the-relevant-nvhpc-module">1. Activate the relevant NVHPC module</h4>
+<h4 id="1-activate-the-relevant-nvhpc-module">1. Activate the relevant NVHPC module<a class="headerlink" href="#1-activate-the-relevant-nvhpc-module" title="Permanent link">&para;</a></h4>
 <p>The NVHPC environment is installed as a module and can be made visible in a session using the command</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label><label for="__tabbed_1_2">Satori</label></div>
 <div class="tabbed-content">
@@ -1802,13 +1802,13 @@ software added includes compilers for C, C++ and Fortran; base GPU optimized num
 transforms and others; GPU optimized communication libraries supporting MPI, SHMEM and NCCL APIs.</p>
 <p>An environment variable, <code>NVHPC_ROOT</code>, is also set. This can be used in scripts to reference the locations of libraries
 when needed.</p>
-<h4 id="2-set-paths-needed-for-compile-step">2. Set paths needed for compile step</h4>
+<h4 id="2-set-paths-needed-for-compile-step">2. Set paths needed for compile step<a class="headerlink" href="#2-set-paths-needed-for-compile-step" title="Permanent link">&para;</a></h4>
 <p>Here we use the module environment variable, <code>NVHPC_ROOT</code>, to set environment variables
 that have paths needed for compilation and linking of code.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">culibdir</span><span class="o">=</span><span class="nv">$NVHPC_ROOT</span>/cuda/lib64
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">cuincdir</span><span class="o">=</span><span class="nv">$NVHPC_ROOT</span>/cuda/include
 </span></code></pre></div>
-<h4 id="3-create-a-c-program-for-that-executes-some-simple-multi-node-multi-gpu-test-code">3. Create a C program for that executes some simple multi-node, multi-GPU test code.</h4>
+<h4 id="3-create-a-c-program-for-that-executes-some-simple-multi-node-multi-gpu-test-code">3. Create a C program for that executes some simple multi-node, multi-GPU test code.<a class="headerlink" href="#3-create-a-c-program-for-that-executes-some-simple-multi-node-multi-gpu-test-code" title="Permanent link">&para;</a></h4>
 <p>The next step is to create a file holding C code that uses MPI to send information between two GPUs 
 running in different processes. Paste the C code below into a file called <code>test.c</code>.</p>
 <div class="language-c highlight"><span class="filename">test.c</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -1875,13 +1875,13 @@ running in different processes. Paste the C code below into a file called <code>
 </span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">  </span><span class="n">MPI_Finalize</span><span class="p">();</span>
 </span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="4-compile-program">4. Compile program</h4>
+<h4 id="4-compile-program">4. Compile program<a class="headerlink" href="#4-compile-program" title="Permanent link">&para;</a></h4>
 <p>Here we use nvhpc MPI wrapper to compile. The two environment variables we set earlier (<code>cuincdir</code> and <code>culibdir</code>) are used to
 let the compile step know where to find the relevant CUDA header and library files. The CUDA runtime library (<code>cudart</code>) is added
 as a location for finding CUDA functions the code utilizes.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mpicc<span class="w"> </span>test.c<span class="w"> </span>-I<span class="si">${</span><span class="nv">cuincdir</span><span class="si">}</span><span class="w"> </span>-L<span class="si">${</span><span class="nv">culibdir</span><span class="si">}</span><span class="w"> </span>-lcudart
 </span></code></pre></div>
-<h4 id="5-execute-program">5. Execute program</h4>
+<h4 id="5-execute-program">5. Execute program<a class="headerlink" href="#5-execute-program" title="Permanent link">&para;</a></h4>
 <p>Once code has been compiled the <code>mpiexec</code> command that is part of the <code>nvhpc</code> module can be used to run the test program.
 The <code>nvhpc</code> module defaults to using its builtin version of OpneMPI. The OpenMPI option <code>btl_openib_warn_no_device_params_found</code>
 is passed into the OpenMPI runtime library. This option suppresses a warning that OpenMPI can generate when it encounters
@@ -1908,7 +1908,7 @@ a network device card that is not present in a built-in list that OpenMPI has hi
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Assigned GPU 0 to MPI rank 1 of 2.
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>rBuf_h[0] = 1.000000
 </span></code></pre></div>
-<h2 id="example-of-slurm-job-file-for-executing-this-example">Example of Slurm job file for executing this example</h2>
+<h2 id="example-of-slurm-job-file-for-executing-this-example">Example of Slurm job file for executing this example<a class="headerlink" href="#example-of-slurm-job-file-for-executing-this-example" title="Permanent link">&para;</a></h2>
 <p>First create a file called "test.c" containing the <a href="#3-create-a-c-program-for-that-executes-some-simple-multi-node-multi-gpu-test-code">example C program above</a>. The job script file below will run all the steps described above for "test.c". It can be submitted to Slurm using the command <code>sbatch</code> followed by the filename holding the job script.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Engaging</label><label for="__tabbed_3_2">Satori</label></div>
 <div class="tabbed-content">

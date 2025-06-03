@@ -1667,7 +1667,7 @@
 
 
 
-<h1 id="message-passing-interface-mpi">Message Passing Interface (MPI)</h1>
+<h1 id="message-passing-interface-mpi">Message Passing Interface (MPI)<a class="headerlink" href="#message-passing-interface-mpi" title="Permanent link">&para;</a></h1>
 <p>Message Passing Interface (MPI) is a standard designed for data communication in parallel computing. The MPI standard defines useful library functions/routines in C, C++, and Fortran. Python interface is available for MPI.   </p>
 <p>There are several MPI implementationos, such as <code>OpenMPI</code>, <code>MPICH</code>, <code>MVAPICH</code>, and <code>Intel MPI</code>, which work with Infiniband network for high-bandwidth data communication.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label></div>
@@ -1675,7 +1675,7 @@
 <div class="tabbed-block"></div>
 </div>
 </div>
-<h2 id="mpi-modules">MPI modules</h2>
+<h2 id="mpi-modules">MPI modules<a class="headerlink" href="#mpi-modules" title="Permanent link">&para;</a></h2>
 <p>There are OpenMPI modules available on the cluster. Before building or runrning your MPI programs, load the modules of a <code>gcc</code> compiler and an <code>openmpi</code> libraries to set up environment varialbes.</p>
 <p>There are two different operations systems (OS) on the cluster: CentOS 7 and Rocky 8. For CentOS 7 nodes, load these modules,
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load gcc/6.2.0 openmpi/3.0.4
@@ -1694,7 +1694,7 @@ If you need to run MPI programs with GPUs, load these modules instead,
 <p class="admonition-title">Note</p>
 <p>Load a <code>gcc</code> module first, then the openmpi modules built with this <code>gcc</code> will be shown in the output of <code>module avail</code> and can be loaded. </p>
 </div>
-<h2 id="build-mpi-programs">Build MPI programs</h2>
+<h2 id="build-mpi-programs">Build MPI programs<a class="headerlink" href="#build-mpi-programs" title="Permanent link">&para;</a></h2>
 <p>This section will be focused on building MPI programs in C or Fortran. Python users can refer to <a href="https://orcd-docs.mit.edu/recipes/mpi4py/">this page</a> for using the <code>mpi4py</code> package.</p>
 <p>Most MPI software should be built from source codes. First, download the package from the internet. Load one of the OpenMPI modules mentioned above. A typical building process is like this,
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./configure CC=mpicc CXX=mpicxx --prefix=&lt;/path/to/your/installation&gt;
@@ -1715,7 +1715,7 @@ or
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mpif90 -O3 name.f90 -o my_program
 </span></code></pre></div>
 This will create an executable file named <code>my_program</code>. Prepare a GNU Makefile to build programs with multiple source files. </p>
-<h2 id="mpi-jobs">MPI jobs</h2>
+<h2 id="mpi-jobs">MPI jobs<a class="headerlink" href="#mpi-jobs" title="Permanent link">&para;</a></h2>
 <p>MPI programs are suitable to run on multiple CPU cores of a single node or on multiple nodes. </p>
 <p>Here is an example script (e.g. named <code>job.sh</code>) to run an MPI job using multiple cores on a single node. 
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#!/bin/bash
@@ -1753,7 +1753,7 @@ This will create an executable file named <code>my_program</code>. Prepare a GNU
 <p>This job requests 2 nodes with 8 cores and 10 GB of memory per node. In this case, the total number of cores (saved to <code>SLURM_NTASKS</code>) is equal to the number of nodes (saved to <code>SLURM_NNODES</code>) times the number of cores per node (saved to <code>SLURM_NTASKS_PER_NODE</code>). The command <code>mpirun -n $SLURM_NTASKS</code> ensures that MPI tasks are distributed to both nodes and each MPI task runs on one core. </p>
 <p>Alternatively, users can specify the number of cores per node using an OpenMPI option like this <code>mpirun -npernode $SLURM_NTASKS_PER_NODE my_program</code>.</p>
 <p>If replacing <code>--ntasks-per-node=8</code> with <code>-n 16</code> in the above script, the job will request 16 cores on 2 nodes, but it is not always the case that there are 8 cores per node. For example, there may be 7 cores on one node and 9 cores on another, or 1 core on one node and 15 cores on another, etc, depending on the current available resources on the cluster. </p>
-<h2 id="computing-resources-for-mpi-jobs">Computing resources for MPI jobs</h2>
+<h2 id="computing-resources-for-mpi-jobs">Computing resources for MPI jobs<a class="headerlink" href="#computing-resources-for-mpi-jobs" title="Permanent link">&para;</a></h2>
 <p>To get a better idea on how many nodes, cores and memory should be requested, users need to consider the following two questions. </p>
 <p>First, what resources are available on the cluster? Use this command to check node and job info on the cluster, including the constraint associated with OS (<code>%f</code>), the nubmer of CPU cores (<code>%c</code>), the memory size (<code>%m</code>), the wall time limit (<code>%l</code>), and the current usage status (<code>%t</code>). 
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a> sinfo -N -p sched_mit_hill,newnodes,sched_any,sched_mit_orcd -o %f,%c,%m,%l,%t |grep -v drain
@@ -1770,7 +1770,7 @@ On typical nodes of the cluster, the number of cores per node varies from 16 to 
 <p class="admonition-title">Note</p>
 <p>After a job starts to run, execute the command <code>squeue -u $USER</code> to check which node the job is running on, and then log in to the node with <code>ssh &lt;hostname&gt;</code> and execute the <code>top</code> command to check how many CPU cores are being used by the program and what the CPU efficiency is. The efficiency may vary with the number of CPU cores. Try to keep your jobs at a high efficiency. </p>
 </div>
-<h2 id="hybrid-mpi-and-multithreading-jobs">Hybrid MPI and multithreading jobs</h2>
+<h2 id="hybrid-mpi-and-multithreading-jobs">Hybrid MPI and multithreading jobs<a class="headerlink" href="#hybrid-mpi-and-multithreading-jobs" title="Permanent link">&para;</a></h2>
 <p>MPI programs are based on distributed-memory parallelism, that says, each MPI task owns a faction of data, such as arrays, matrices, or tensors. In contrast to MPI, the multithreading technique is based on a shared-memory parallelism, in which data is shared by multiple threads. A common implementation of the multithreading technique is OpenMP. For Python users, the <code>numpy</code> package is based on C libraries, such as Openblas, which are usually built with OpenMP. </p>
 <details>
 <summary>Side note: OpenMP</summary>

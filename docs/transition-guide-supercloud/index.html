@@ -1717,36 +1717,36 @@
 
 
 
-<h1 id="supercloud-to-engaging-transition-guide">SuperCloud to Engaging Transition Guide</h1>
+<h1 id="supercloud-to-engaging-transition-guide">SuperCloud to Engaging Transition Guide<a class="headerlink" href="#supercloud-to-engaging-transition-guide" title="Permanent link">&para;</a></h1>
 <p>Updates to SuperCloud's access policies mean that starting May 1 access to SuperCloud will be limited to Lincoln Laboratory collaborators. As ORCD expands Engaging we welcome any MIT researchers who are not Lincoln collaborators and are looking for a place to run their computational workloads. The ORCD team is here to help make that transition as smooth as possible.</p>
 <p>This page is maintained to answer questions and document how to migrate to ORCD's Engaging system. We will continue to update this page with answers to more questions and documentation.</p>
-<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
-<h3 id="what-are-my-options">What are my options?</h3>
+<h2 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-my-options">What are my options?<a class="headerlink" href="#what-are-my-options" title="Permanent link">&para;</a></h3>
 <p>There are other computing options available to the MIT community. ORCD runs the Engaging system which has both resources available to the entire MIT community and resources purchased by individual PIs and DLCs made available to their researchers.</p>
 <p>Some DLCIs maintain their own set of resources. See <a href="https://orcd.mit.edu/resources/dlci-shared-hardware">this page</a> for a list.</p>
-<h3 id="what-is-the-timeline">What is the timeline?</h3>
+<h3 id="what-is-the-timeline">What is the timeline?<a class="headerlink" href="#what-is-the-timeline" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Through April 30: All SuperCloud users can run jobs</li>
 <li>Starting May 1: Running jobs limited to Lincoln Collaborators</li>
 <li>Through May 31: Non-collaborators may continue to access SuperCloud for data migration</li>
 <li>June 1: SuperCloud access limited to Lincoln Collaborators</li>
 </ul>
-<h3 id="how-do-i-migrate-to-another-system">How do I migrate to another system?</h3>
+<h3 id="how-do-i-migrate-to-another-system">How do I migrate to another system?<a class="headerlink" href="#how-do-i-migrate-to-another-system" title="Permanent link">&para;</a></h3>
 <p>There are three main steps or milestones for moving to a new system. These will be similar to the steps you take when getting a new account on any system.</p>
 <ul>
 <li>Transfer data: Identify what data you need to keep and transfer it to the new system. See the <a href="#migrating-data-from-supercloud">Migrating Data from SuperCloud</a> section below for recommended ways to transfer large amounts of data.</li>
 <li>Build any missing software: Check the software stack of the new system and see what you may need to rebuild or request. Engaging maintains a software stack through modules that includes many of the software packages provided on SuperCloud. Names may be different, so run <code>module avail</code> to check for differences.</li>
 <li>Run jobs: Run small tests before running larger production jobs. Both SuperCloud and Engaging use Slurm, but Engaging does not have the <code>LL</code> commands such as <code>LLsub</code>, <code>LLfree</code>, and <code>LLstat</code>. Some <code>sbatch</code> flags may differ between the two systems as well. We will provide documentation on this page in the near future for the Engaging equivalent for common SuperCloud job workflows. You can also consult the section on Running Jobs in this documentation.</li>
 </ul>
-<h3 id="where-can-i-get-help">Where can I get help?</h3>
+<h3 id="where-can-i-get-help">Where can I get help?<a class="headerlink" href="#where-can-i-get-help" title="Permanent link">&para;</a></h3>
 <p>The ORCD team can help with migrating data and workloads to Engaging. ORCD has regular office hours (see the <a href="https://orcd.mit.edu/news-and-events/office-hours">Office Hours Schedule</a>). You can also request help through <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a>.</p>
-<h3 id="how-can-i-get-an-account-on-engaging">How can I get an account on Engaging?</h3>
+<h3 id="how-can-i-get-an-account-on-engaging">How can I get an account on Engaging?<a class="headerlink" href="#how-can-i-get-an-account-on-engaging" title="Permanent link">&para;</a></h3>
 <p>It is fairly quick and simple to create your account Engaging. Accounts on the engaging cluster are connected to your MIT institutional Kerberos id. To get an account log into the <a href="https://engaging-ood.mit.edu">Engaging OnDemand Web Portal</a>. Connecting to Engaging OnDemand for the first time automatically activates an account with basic access to resources. See <a href="../accessing-orcd/ondemand-login/">this page</a> for instructions on how to log in. After you log in wait a few minutes for your account setup to complete before starting to run jobs.</p>
-<h3 id="how-do-i-know-whether-i-have-a-lincoln-collaboration">How do I know whether I have a Lincoln Collaboration?</h3>
+<h3 id="how-do-i-know-whether-i-have-a-lincoln-collaboration">How do I know whether I have a Lincoln Collaboration?<a class="headerlink" href="#how-do-i-know-whether-i-have-a-lincoln-collaboration" title="Permanent link">&para;</a></h3>
 <p>The SuperCloud documentation on <a href="https://mit-supercloud.github.io/supercloud-docs/requesting-account/">Requesting an Account</a> describes the ways to demonstration a Lincoln collaboration.</p>
-<h3 id="if-i-have-lincoln-collaboration-how-do-i-update-my-account-to-reflect-my-collaboration">If I have Lincoln Collaboration how do I update my account to reflect my collaboration?</h3>
+<h3 id="if-i-have-lincoln-collaboration-how-do-i-update-my-account-to-reflect-my-collaboration">If I have Lincoln Collaboration how do I update my account to reflect my collaboration?<a class="headerlink" href="#if-i-have-lincoln-collaboration-how-do-i-update-my-account-to-reflect-my-collaboration" title="Permanent link">&para;</a></h3>
 <p>Check your <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile page</a> on the SuperCloud Web portal. The "Lincoln Laboratory Collaboration" section is in the column on the right and should list any collaborations you or your advisor/PI might have. If any collaborations are missing you can follow the instructions at the top of the page to update your information. Please indicate your collaborator status before May 1 any interruption to your ability to run jobs.</p>
-<h3 id="how-can-i-use-my-python-virtual-environments-or-conda-environments-on-engaging">How can I use my Python virtual environments or Conda environments on Engaging?</h3>
+<h3 id="how-can-i-use-my-python-virtual-environments-or-conda-environments-on-engaging">How can I use my Python virtual environments or Conda environments on Engaging?<a class="headerlink" href="#how-can-i-use-my-python-virtual-environments-or-conda-environments-on-engaging" title="Permanent link">&para;</a></h3>
 <p>If you have <a href="../software/python/#python-virtual-environments">Python virtual environments</a> or <a href="../software/python/#conda-environments">Conda environments</a> on SuperCloud that you would like to use on Engaging, we recommend recreating them on Engaging. Simply copying over environment files is <strong>not expected to work</strong> due to setup differences between the two clusters.</p>
 <p>For both types of environments, the general process is to save the environment specifications to a file to be used for regeneration on Engaging.</p>
 <div class="admonition note">
@@ -1754,7 +1754,7 @@
 <p>For more information on using Python on Engaging, see our
 <a href="../software/python/">Python documentation</a>.</p>
 </div>
-<h4 id="python-virtual-environments">Python virtual environments</h4>
+<h4 id="python-virtual-environments">Python virtual environments<a class="headerlink" href="#python-virtual-environments" title="Permanent link">&para;</a></h4>
 <p>Save contents of python venv to a <code>requirements.txt</code> file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda/2023b
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">source</span><span class="w"> </span>/path/to/my_venv/bin/activate
@@ -1780,7 +1780,7 @@ version provided by the Miniforge module on Engaging. If this is a problem,
 we recommend creating a Conda environment with your desired version of
 Python installed.</p>
 </div>
-<h4 id="conda-environments">Conda environments</h4>
+<h4 id="conda-environments">Conda environments<a class="headerlink" href="#conda-environments" title="Permanent link">&para;</a></h4>
 <p>You can check all Conda environments you have created using <code>conda info --envs</code>.
 As Conda environments can take up lots of space, we recommend going through and
 choosing to transfer only the environments that you are still using.</p>
@@ -1797,9 +1797,9 @@ choosing to transfer only the environments that you are still using.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>module<span class="w"> </span>load<span class="w"> </span>miniforge
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>my_env.yml
 </span></code></pre></div>
-<h2 id="differences-between-supercloud-and-engaging">Differences Between SuperCloud and Engaging</h2>
+<h2 id="differences-between-supercloud-and-engaging">Differences Between SuperCloud and Engaging<a class="headerlink" href="#differences-between-supercloud-and-engaging" title="Permanent link">&para;</a></h2>
 <p>SuperCloud and Engaging are both shared HPC systems that use Slurm. Their high-level architecture is the same, both have login nodes and compute nodes connected by a network and filesystems that can be accessed from each node. However, there are differences in the systems, practices, and policies between the two. This section describes some of those differences that are most helpful to know.</p>
-<h3 id="general-differences">General Differences</h3>
+<h3 id="general-differences">General Differences<a class="headerlink" href="#general-differences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Engaging accounts can be created by anyone with an MIT kerberos, see <a href="#how-can-i-get-an-account-on-engaging">above</a></li>
 <li>Engaging maintenance is on the <strong>3rd Tuesday</strong> of each month</li>
@@ -1808,32 +1808,32 @@ choosing to transfer only the environments that you are still using.</p>
 <li>Compute nodes on Engaging can access the internet</li>
 <li>Engaging uses an OnDemand Web Portal that provides similar functionality to the SuperCloud Web Portal</li>
 </ul>
-<h3 id="running-jobs">Running Jobs</h3>
+<h3 id="running-jobs">Running Jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Nodes on Engaging are not exclusive by user, one node can have multiple users running jobs.</li>
 <li>Engaging partitions have a different naming convention and can have multiple different types of nodes. You must specify a partition when you launch jobs. See the <a href="../running-jobs/overview/#partitions">Partitions section</a> for more information.</li>
 <li>The wrapper commands that start with <code>LL</code> are not available on Engaging, however the Slurm commands (start with <code>s</code>, such as <code>sbatch</code>) behave similarly. See the <a href="../running-jobs/overview/">Running Jobs Overview page </a> and the <a href="../running-jobs/requesting-resources/">Requesting Resources page</a>.</li>
 <li>MIT PIs and DLCIs can purchase additional compute nodes to add to Engaging. Their groups have priority access on these nodes. The MIT community can run preemptable jobs on these nodes when they are idle through the <code>mit_preemptable</code> partition. These jobs are preempted, or stopped, when someone from the group that owns the nodes runs a job on them. If your group is interested in purchasing compute nodes reach out to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a>.</li>
 </ul>
-<h3 id="storage">Storage</h3>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
 <ul>
 <li>While each user on SuperCloud has a home directory, on Engaging each user has three spaces: home, pool, and scratch. Quotas on Engaging are also smaller than on SuperCloud. See <a href="../filesystems-file-transfer/filesystems/">General Use Filesystems</a> for a description of each, what they are meant for, and their quotas.</li>
 <li>Each PI can request 5TB of shared group storage on Engaging.</li>
 <li>Additional storage space can be rented. See <a href="../filesystems-file-transfer/project-filesystems/">Project Specific Filesystems</a> for more information and email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a> if you are interested in purchasing storage for your group.</li>
 </ul>
-<h2 id="migrating-data-from-supercloud">Migrating Data from SuperCloud</h2>
+<h2 id="migrating-data-from-supercloud">Migrating Data from SuperCloud<a class="headerlink" href="#migrating-data-from-supercloud" title="Permanent link">&para;</a></h2>
 <p>This section describes some recipes for migrating data from SuperCloud to Engaging, but some advice will apply to other systems.</p>
-<h3 id="step-1-what-to-transfer">Step 1: What to Transfer</h3>
+<h3 id="step-1-what-to-transfer">Step 1: What to Transfer<a class="headerlink" href="#step-1-what-to-transfer" title="Permanent link">&para;</a></h3>
 <p>First, this is a good opportunity to decide what you need and what you don't need. Take a look at your home and group directories and decide what you need to keep. Transferring a lot of data (more than a few TB) or files (order of 1 million files) can take a long time. </p>
 <div class="admonition warning">
 <p class="admonition-title">Remove files carefully</p>
 <p>Remove files you no longer need very carefully. Remember, <code>rm</code> on Linux is permanent and the SuperCloud storage is not backed up!</p>
 </div>
-<h3 id="step-2-where-to-transfer">Step 2: Where to Transfer</h3>
+<h3 id="step-2-where-to-transfer">Step 2: Where to Transfer<a class="headerlink" href="#step-2-where-to-transfer" title="Permanent link">&para;</a></h3>
 <p>Next figure out where you are going to transfer the data. ORCD has some base storage <a href="../filesystems-file-transfer/filesystems/">described here</a>, with additional <a href="../filesystems-file-transfer/project-filesystems/">storage available for purchase</a>.</p>
 <p>Check your SuperCloud storage utilization to see how much space you use. You can see both your home directory and your group storage on your <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile Page</a>. If this is more than what the Engaging quotas can support you may want to check what you can clean up. Your group may also want to purchase additional storage.</p>
 <p>For long-term archival storage of data that you need to keep, but will never or rarely need to access, consider purchasing archival storage such as <a href="https://aws.amazon.com/s3/storage-classes/glacier/">AWS Glacier</a>. For storage that you may need to access, but don't need to compute, <a href="https://kb.mit.edu/confluence/display/istcontrib/Data+Storage+and+Collaboration+Options">MIT IS&amp;T provides some storage options</a> for MIT students, staff, and faculty.</p>
-<h3 id="step-3-transfer-your-data">Step 3: Transfer Your Data</h3>
+<h3 id="step-3-transfer-your-data">Step 3: Transfer Your Data<a class="headerlink" href="#step-3-transfer-your-data" title="Permanent link">&para;</a></h3>
 <p>If you don't have a lot of data to transfer you can use <code>scp</code> or <code>rsync</code> to transfer files at the command line. Log into either system and run your <code>scp</code> or <code>rsync</code> command from there. The best option is to do this on the download partition on SuperCloud as a batch job. You would use a batch script that looks something like this:</p>
 <div class="language-bash highlight"><span class="filename">transfer.sh</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
@@ -1846,7 +1846,7 @@ choosing to transfer only the environments that you are still using.</p>
 <p>Be careful not to copy your SuperCloud home directory directly into your Engaging home directory. Doing so may overwrite files in your Engaging home directory, including files such as <code>.bashrc</code> which can cause issues. Instead create a subdirectory and transfer your files there.</p>
 </div>
 <p>If you have a lot of data and are having trouble with <code>rsync</code> or <code>scp</code> failing before the transfer is complete, Engaging has Globus collections that can make transfer easier. Globus will manage the file transfer for you to make sure everything transfers properly.</p>
-<h4 id="using-globus-to-transfer-data">Using Globus to Transfer Data</h4>
+<h4 id="using-globus-to-transfer-data">Using Globus to Transfer Data<a class="headerlink" href="#using-globus-to-transfer-data" title="Permanent link">&para;</a></h4>
 <p>The first step is to install Globus Connect Personal on SuperCloud. Log into SuperCloud and run the following in your home directory:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wget<span class="w"> </span>https://downloads.globus.org/globus-connect-personal/linux/stable/globusconnectpersonal-latest.tgz
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>tar<span class="w"> </span>xzf<span class="w"> </span>globusconnectpersonal-latest.tgz

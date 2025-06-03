@@ -1627,9 +1627,9 @@
 
 
 
-<h1 id="running-jobs">Running Jobs</h1>
+<h1 id="running-jobs">Running Jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h1>
 <p>On the <a href="../overview/">Job Scheduler Overview</a> page we described how to run both <a href="../overview/#batch-jobs">batch</a> and <a href="../overview/#interactive-jobs">interactive</a> jobs. This page describes how to request resources for your job.</p>
-<h2 id="cores-for-multicore-and-shared-memory-jobs">Cores for Multicore and Shared Memory Jobs</h2>
+<h2 id="cores-for-multicore-and-shared-memory-jobs">Cores for Multicore and Shared Memory Jobs<a class="headerlink" href="#cores-for-multicore-and-shared-memory-jobs" title="Permanent link">&para;</a></h2>
 <p>For any kind of multithreading, multiprocessing, shared memory, OpenMP, or similar jobs you can use the <code>-c</code> or <code>--cpus-per-task</code> flag to request additional cores.</p>
 <p>An example batch script that requests 4 cores on the mit_normal partition would be:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
@@ -1644,7 +1644,7 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Run your application</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>python<span class="w"> </span>myscript.py
 </span></code></pre></div>
-<h2 id="mpi-and-distributed-jobs">MPI and Distributed Jobs</h2>
+<h2 id="mpi-and-distributed-jobs">MPI and Distributed Jobs<a class="headerlink" href="#mpi-and-distributed-jobs" title="Permanent link">&para;</a></h2>
 <p>There are a few flags to be aware of for running distributed and MPI jobs. These types of jobs can run across multiple nodes, so there are a few flags that can control how these tasks are spread out.</p>
 <ul>
 <li><code>-n</code> or <code>--ntasks</code>: This flag is used to specify the total number of distributed or MPI processes or ranks that your application uses. "Task" is roughly the term that Slurm uses for a process. By default you get <code>ntasks</code> number of cores for your job, one per task.</li>
@@ -1693,7 +1693,7 @@
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Run your application</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>mpirun<span class="w"> </span>my_program
 </span></code></pre></div>
-<h2 id="memory">Memory</h2>
+<h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
 <p>Each job is allocated some default amount of memory, the amount depending on the node. If you find that you are running out of memory you can request more with the <code>--mem</code> or <code>--mem-per-core</code> flags.</p>
 <p>Here is an example of a job multicore job that requests 4 cores and 16GB of RAM:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
@@ -1715,7 +1715,7 @@
 <p>where <code>JOBID</code> is your job ID. <code>State</code> shows the job status, keep in mind
 that the amount of memory reported by <code>sacct</code> is only accurate for jobs that are no longer running, and <code>ReqMem</code> is the number of memory that was allocated to the job. <code>MaxRSS</code> is the maximum resident memory (maximum memory footprint) used by each job.</p>
 <p>If the <code>MaxRSS</code> value is larger than what you have requested, or you run out of memory, you will have to request additional memory for your job.</p>
-<h2 id="gpus">GPUs</h2>
+<h2 id="gpus">GPUs<a class="headerlink" href="#gpus" title="Permanent link">&para;</a></h2>
 <p>GPUs are available through the <code>mit_normal_gpu</code> partition. You can also run <a href="../overview/#preemptable-jobs">preemptable</a> GPU jobs on the <code>mit_preemptable</code> partition.</p>
 <p>To request a GPU use the <code>--gres</code> flag in the following way:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>--gres<span class="o">=</span>gpu:<span class="o">[</span>GPU_TYPE<span class="o">]</span>:<span class="o">[</span><span class="c1">#GPUS]</span>

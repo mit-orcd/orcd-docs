@@ -1783,7 +1783,7 @@
 
 
 
-<h1 id="building-software">Building Software</h1>
+<h1 id="building-software">Building Software<a class="headerlink" href="#building-software" title="Permanent link">&para;</a></h1>
 <p>If you need software that is not a Python, Julia, or R package and available as a <a href="../modules/">module</a> on the cluster (current modules can be seen with the command module avail) you can request this software be compiled as a module by reaching out to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#45;&#101;&#110;&#103;&#97;&#103;&#105;&#110;&#103;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#45;&#101;&#110;&#103;&#97;&#103;&#105;&#110;&#103;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a>. If you expect there won't be many others who will be using this software, or if you need a special version of software for your job, you can compile the software yourself for personal use.</p>
 <p>For some common software we have written recipes for how to build them on Engaging. Check the "ORCD Recipes" section on the sidebar, or check out the <a href="../../tags/#tag:howto-recipes">Howto Recipes</a> on the Index page.</p>
 <p>You can usually install whatever software you need in any directory you have write access to: your home, pool, or shared storage. This means the installation will be in this directory, rather than in a system-wide directory available for everyone. Most software can be installed this way, but it is not always well documented. If the binaries, or the executable files, for the software are available, you can put those in your home directory and add that path to your <code>$PATH</code> environment variable (see the Environment Variables unit in the section on the Linux Command Line for more information). Otherwise, you may have to build the software from source.</p>
@@ -1812,17 +1812,17 @@
 </li>
 </ul>
 </div>
-<h2 id="step-0-check-for-pre-built-binaries">Step 0: Check for Pre-Built Binaries</h2>
+<h2 id="step-0-check-for-pre-built-binaries">Step 0: Check for Pre-Built Binaries<a class="headerlink" href="#step-0-check-for-pre-built-binaries" title="Permanent link">&para;</a></h2>
 <p>In some cases your software will distribute pre-built binaries, or executable files, that you can run without building the software yourself. You will want to look for files that are labeled for the x86 architecture and linux operating system.</p>
 <p>You can follow the instructions in <a href="#step-1-download-and-unpack-the-source-code">Step 1</a> for downloading the binaries onto Engaging and unpacking them. Once you have done that, skip to <a href="">Step X</a> to set your <code>$PATH</code> to use the software.</p>
 <p>Please note that this process assumes you have downloaded the source code for the software you wish to compile, and that source code is located at /home/$USER on the engaging cluster:</p>
-<h2 id="step-1-download-and-unpack-the-source-code">Step 1: Download and Unpack the Source Code</h2>
+<h2 id="step-1-download-and-unpack-the-source-code">Step 1: Download and Unpack the Source Code<a class="headerlink" href="#step-1-download-and-unpack-the-source-code" title="Permanent link">&para;</a></h2>
 <p>Go to your software's download or releases page and look for the source code distributions. If there are different distributions for Linux and Windows, be sure to select the one for Linux.</p>
 <p>You can usually left-click and select "Copy Link Address" to get the URL to the download, then in a terminal on Engaging use the <code>wget</code> command to download the source. If the code is in GitHub you can check if they have tagged releases in the right column under "Releases", or clone the repository.</p>
 <p>Often the source is distributed in <code>tar.gz</code> files, so you will need to use the <code>tar</code> command to unpack:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xf<span class="w"> </span>my-software.tar.gz
 </span></code></pre></div>
-<h2 id="step-2-start-an-interactive-job-for-compilation">Step 2: Start an Interactive Job for Compilation</h2>
+<h2 id="step-2-start-an-interactive-job-for-compilation">Step 2: Start an Interactive Job for Compilation<a class="headerlink" href="#step-2-start-an-interactive-job-for-compilation" title="Permanent link">&para;</a></h2>
 <p>Builds are not too computationally heavy, but tend to run more slowly on the login nodes. To start an interactive job for compilation, use the command:</p>
 <p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>salloc<span class="w"> </span>-p<span class="w"> </span>mit_normal<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span>
 </span></code></pre></div>
@@ -1831,22 +1831,22 @@ This will allocate 1 node from the <code>mit_normal</code> partition with 4 CPUs
 <p class="admonition-title">Note</p>
 <p>Be sure to request the partition you intend to run your jobs on. The node you build on will need to match the operating system of the nodes you plan to run your jobs on.</p>
 </div>
-<h2 id="step-3-load-any-dependency-modules">Step 3: Load Any Dependency Modules</h2>
+<h2 id="step-3-load-any-dependency-modules">Step 3: Load Any Dependency Modules<a class="headerlink" href="#step-3-load-any-dependency-modules" title="Permanent link">&para;</a></h2>
 <p>Make sure you have a <code>gcc</code> module loaded with the <code>module list</code> command. If you don't see one, pick one of the more recent versions and load it with the <code>module load</code> command.</p>
 <p>If your software uses <code>cmake</code> to build, you will also need to load a cmake module:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>module<span class="w"> </span>load<span class="w"> </span>cmake
 </span></code></pre></div>
 <p>If your application uses MPI load an MPI module as well. Again, if you aren't sure which version to choose we recommend using a newer version.</p>
 <p>Check your documentation for any other dependencies and load any available modules for those.</p>
-<h2 id="step-4-configure-software">Step 4: Configure Software</h2>
+<h2 id="step-4-configure-software">Step 4: Configure Software<a class="headerlink" href="#step-4-configure-software" title="Permanent link">&para;</a></h2>
 <p>The next step is often to run some kind of configure step. This is the step where you specify what build options you want or where any dependencies are installed. During this step there are usually checks for required dependencies and a working compiler. It is also at this step that you usually specify where you want your software installed.</p>
 <p>The two most common technologies for this step are a <code>configure</code> script and <code>cmake</code>. For these your software will come with either a <code>configure</code> script or a <code>CMakeLists.txt</code> (for <code>cmake</code>). If it comes with both you can check your software's documentation to see if they recommend one over the other. You will also want to check for any additional build flags you would like enabled, or additional instructions for this step.</p>
-<h3 id="running-the-configure-script">Running the <code>configure</code> script</h3>
+<h3 id="running-the-configure-script">Running the <code>configure</code> script<a class="headerlink" href="#running-the-configure-script" title="Permanent link">&para;</a></h3>
 <p>First go to the directory that contains the <code>configure</code> script. When you run <code>configure</code> you will need to specify the install location, usually somewhere in your home directory. You can do this with the <code>--prefix</code> flag:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/<span class="o">[</span>install_directory<span class="o">]</span>
 </span></code></pre></div>
 <p>where ‘install_directory’ is the directory where you would like the software to be installed to. If you plan to install multiple pieces of personal software, we recommend making a folder entitled <code>`software</code> in your home directory and installing software there. We like to use the path <code>/home/$USER/software/[software_name]/install</code> where <code>[software_name]</code> is the name of your software. The <code>install</code> directory is there to differentiate from any source code that may be stored in the same location. If you keep the source code elsewhere you can leave off <code>install</code> from the path.</p>
-<h3 id="running-cmake">Running <code>cmake</code></h3>
+<h3 id="running-cmake">Running <code>cmake</code><a class="headerlink" href="#running-cmake" title="Permanent link">&para;</a></h3>
 <p>If your software has a <code>CMakeLists.txt</code> file, it uses cmake to build and you can use the flag <code>-DCMAKE_INSTALL_PREFIX</code> to specify an install location in your home directory. If you've installed any additional dependencies you can specify their location with the <code>-DCMAKE_PREFIX_PATH</code> flag. Consult the install documentation for any additional flags for other options that you might want.</p>
 <p>First go to the top level source code directory that should have the <code>CMakeLists.txt</code> file. Create a build directory and enter it:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir<span class="w"> </span>build
@@ -1856,7 +1856,7 @@ This will allocate 1 node from the <code>mit_normal</code> partition with 4 CPUs
 <p>Then use the cmake command with the option <code>-DCMAKE_INSTALL_PREFIX</code> pointing to the install location you want and <code>-DCMAKE_PREFIX_PATH</code> pointing to the location of any dependencies (if you have them). The “..” at the end tells cmake to look in the directory above for the <code>CMakeLists.txt</code> file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cmake<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/<span class="o">[</span>install_directory<span class="o">]</span><span class="w"> </span>-DCMAKE_PREFIX_PATH<span class="o">=</span><span class="nv">$HOME</span>/path/to/deps<span class="w"> </span>..
 </span></code></pre></div>
-<h2 id="step-5-build-the-software-with-make">Step 5: Build the Software with <code>make</code></h2>
+<h2 id="step-5-build-the-software-with-make">Step 5: Build the Software with <code>make</code><a class="headerlink" href="#step-5-build-the-software-with-make" title="Permanent link">&para;</a></h2>
 <p>Next you will run the ‘make’ command to build the software. If you have started an interactive job, you will want to specify that you want to use the CPUs you had allocated for compilation (4 in this example). You can do this by using the command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
 </span></code></pre></div>
@@ -1866,23 +1866,23 @@ This will allocate 1 node from the <code>mit_normal</code> partition with 4 CPUs
 <p class="admonition-title">Tip</p>
 <p>One nice thing about <code>make</code> is if it gets interrupted it will pick up where it left off. If you do happen to get logged out while running <code>make</code>, make sure you have <a href="#step-3-load-any-dependency-modules">set up your environment</a> in the same way you did the first time. This includes loading modules or setting environment variables.</p>
 </div>
-<h2 id="step-6-install-software">Step 6: Install Software</h2>
+<h2 id="step-6-install-software">Step 6: Install Software<a class="headerlink" href="#step-6-install-software" title="Permanent link">&para;</a></h2>
 <p>Once your make command finishes successfully, it is time to install the software. This is done simply with the command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>make<span class="w"> </span>install
 </span></code></pre></div>
 <p>This command copies all the installation files, the files needed to run the software, to its final install location that you set in <a href="#step-4-configure-software">Step 4</a>. This command will often fail if you don't set an install location, as the most common default is to install in a system-wide directory.</p>
-<h2 id="step-7-confirm-software-installation-was-successful">Step 7: Confirm Software Installation Was Successful</h2>
+<h2 id="step-7-confirm-software-installation-was-successful">Step 7: Confirm Software Installation Was Successful<a class="headerlink" href="#step-7-confirm-software-installation-was-successful" title="Permanent link">&para;</a></h2>
 <p>At this point, you should be able to run the software you have compiled if compiled successfully. Binaries, or the executable files, are usually placed in the <code>bin</code> directory of your install directory. You run a binary to test that it works by typing out the path to that binary. For example:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">$HOME</span>/software/<span class="o">[</span>software_name<span class="o">]</span>/install/bin/my_cmd
 </span></code></pre></div>
 <p>Note that this path will change depending on where you installed your software.</p>
 <p>You may need to load some or all of the modules that you had loaded when you built the software, and you may need to set additional environment variables. Your software's documentation may help.</p>
-<h2 id="step-8-add-the-software-to-your-path">Step 8: Add the Software to Your PATH</h2>
+<h2 id="step-8-add-the-software-to-your-path">Step 8: Add the Software to Your PATH<a class="headerlink" href="#step-8-add-the-software-to-your-path" title="Permanent link">&para;</a></h2>
 <p>The <code>$PATH</code> environment variable lists the directories that Linux searches for command executable files. While you can type out the full path to your newly installed binary as in <a href="#step-7-confirm-software-installation-was-successful">Step 7</a>, it can be more convenient to type only the command itself. To do that you can add the install location to your <code>$PATH</code>. It is important to set it properly, if you remove existing entries from your <code>$PATH</code> it can affect your ability to run basic commands like <code>ls</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/software/<span class="o">[</span>software_name<span class="o">]</span>/install/bin:<span class="nv">$PATH</span>
 </span></code></pre></div>
 <p>Note that this path will change depending on where you installed your software.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>The Recipes section in the documentation contains several examples of builds that have been done on Engaging. Some examples include:</p>
 <ul>
 <li><a href="../../recipes/build-vasp-gcc-cpu/">Vasp</a></li>

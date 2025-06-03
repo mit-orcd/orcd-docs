@@ -1667,9 +1667,9 @@
 
 
 
-<h1 id="logging-in-with-ssh-via-terminal">Logging in with SSH via Terminal</h1>
+<h1 id="logging-in-with-ssh-via-terminal">Logging in with SSH via Terminal<a class="headerlink" href="#logging-in-with-ssh-via-terminal" title="Permanent link">&para;</a></h1>
 <p>You can log into our systems via SSH through your local terminal. Using SSH in a terminal or command line window on your desktop is the traditional way to access HPC Systems. This method offers the most flexibility, allowing you to start interactive and batch jobs to run your code, download data, and install packages.</p>
-<h2 id="terminal-by-operating-system">Terminal by Operating System</h2>
+<h2 id="terminal-by-operating-system">Terminal by Operating System<a class="headerlink" href="#terminal-by-operating-system" title="Permanent link">&para;</a></h2>
 <p>A terminal window is a window with a command line interface. </p>
 <p>To log into our systems, we use the terminal to SSH into the system. SSH (Secure Shell) is the primary way to log into remote systems. Once you initiate the SSH command, the shell in your terminal will no longer run on your computer but on the remote system. Authentication is required, either using a password or SSH keys. To set up SSH keys, please refer to the <a href="../ssh-setup/">SSH Key Setup Page</a>.</p>
 <p>Follow the directions below based on your operating system:</p>
@@ -1683,7 +1683,7 @@
 </div>
 <div class="tabbed-block">
 <p>Windows systems offer multiple terminal options: Windows Terminal, Command Prompt, and PowerShell. The best way to get a terminal depends on your version of Windows. Starting at Windows 10, the Windows Subsystem for Linux (WSL) is available, allowing you to run Linux as an application in Windows. You can also use the Windows Command Prompt if you have SSH enabled. For older versions of Windows, install a terminal program that supports bash.</p>
-<h4 id="windows-10-and-up"><strong>Windows 10 and Up</strong></h4>
+<h4 id="windows-10-and-up"><strong>Windows 10 and Up</strong><a class="headerlink" href="#windows-10-and-up" title="Permanent link">&para;</a></h4>
 <p>You have two options:  </p>
 <ol>
 <li><strong>Windows Command Prompt (CMD):</strong> Comes with all Windows computers and supports SSH with little to no setup. However, it lacks some tools for transferring files and uses different commands than Linux.  </li>
@@ -1691,9 +1691,9 @@
 </ol>
 <p>To check if CMD has SSH enabled, run the command <code>ssh</code>. If SSH is not enabled, follow the instructions on this <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">Page</a> to set it up.</p>
 <p>If you want to use WSL, follow the instructions on this <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Page</a> to enable WSL and install a Linux distribution of your choice. If you don't have a preference, Ubuntu is a good place to start. If you have any questions about WSL, there is a good chance they are answered in their <a href="https://learn.microsoft.com/en-us/windows/wsl/faq">FAQ</a>.</p>
-<h4 id="older-windows-versions"><strong>Older Windows Versions</strong></h4>
+<h4 id="older-windows-versions"><strong>Older Windows Versions</strong><a class="headerlink" href="#older-windows-versions" title="Permanent link">&para;</a></h4>
 <p>For older Windows versions, install a terminal that supports bash and SSH, such as MobaXterm. Follow the instructions on this <a href="https://mobaxterm.mobatek.net/">Page</a> to install MobaXterm and create a local shell.</p>
-<h4 id="other-notes-about-windows">Other Notes about Windows</h4>
+<h4 id="other-notes-about-windows">Other Notes about Windows<a class="headerlink" href="#other-notes-about-windows" title="Permanent link">&para;</a></h4>
 <p>Some programs may seem like valid terminals for accessing SuperCloud but are not ideal. Here are a few examples and why they are not recommended:</p>
 <ul>
 <li><u>Windows Command Prompt (pre-Windows 10):</u> Does not natively support bash or SSH commands.</li>
@@ -1703,7 +1703,7 @@
 </div>
 </div>
 </div>
-<h2 id="logging-in-via-ssh">Logging in via SSH</h2>
+<h2 id="logging-in-via-ssh">Logging in via SSH<a class="headerlink" href="#logging-in-via-ssh" title="Permanent link">&para;</a></h2>
 <p>Once you have your terminal set up for your specific operating system, you can use SSH to access our HPC systems. Follow the commands below for your desired system.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Engaging</label><label for="__tabbed_2_2">Satori</label><label for="__tabbed_2_3">SuperCloud</label><label for="__tabbed_2_4">OpenMind</label></div>
 <div class="tabbed-content">

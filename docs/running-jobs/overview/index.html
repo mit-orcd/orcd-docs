@@ -1759,9 +1759,9 @@
 
 
 
-<h1 id="job-scheduler-overview">Job Scheduler Overview</h1>
+<h1 id="job-scheduler-overview">Job Scheduler Overview<a class="headerlink" href="#job-scheduler-overview" title="Permanent link">&para;</a></h1>
 <p>To run something on an HPC cluster, like Engaging, you will request resources for your application using a piece of software called the <em>scheduler</em>. The scheduler that Engaging uses is Slurm (you'll see and hear "scheduler" and "Slurm" used interchangeably). It is the scheduler's responsibility to allocate the resources that satisfy your request and those of everyone else using the system. This temporary allocation of resources is called a <em>job</em>. As with all software, the scheduler uses a specific syntax for requesting resources. This section describes how to work with the scheduler and how to run jobs efficiently.</p>
-<h2 id="partitions">Partitions</h2>
+<h2 id="partitions">Partitions<a class="headerlink" href="#partitions" title="Permanent link">&para;</a></h2>
 <p>Engaging is a large heterogenous cluster, meaning there are many different types of nodes with different configurations. Some nodes are freely available for anyone at MIT to use, and some have been purchased by labs or departments for priority use by their group. Some nodes are meant for specific types of workloads. Nodes are grouped together in <em>partitions</em>, which designate who can access them and what they should be used for. Different partitions may have different sets of rules about how many resources you can use and how long your jobs can run on them.</p>
 <p>To see which partitions you have access to, run the <code>sinfo</code> command: </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sinfo
@@ -1823,10 +1823,10 @@
 <p>There are a few additional partitions that contain older nodes. These nodes run on a different operating system (Centos 7) than the ones above and therefore have a different software stack. Software built or installed on Rocky 8 or newer nodes will most likely not work on these older nodes. These partitions include <code>sched_mit_hill</code>, <code>newnodes</code>, <code>sched_any</code>, <code>sched_engaging_default</code>, and <code>sched_quicktest</code>.</p>
 </div>
 <p>If you are part of a group that has purchased nodes you may see additional partitions. They will be named based on your PI's Kerberos or your group's name, depending on who purchased the nodes.</p>
-<h3 id="preemptable-jobs">Preemptable Jobs</h3>
+<h3 id="preemptable-jobs">Preemptable Jobs<a class="headerlink" href="#preemptable-jobs" title="Permanent link">&para;</a></h3>
 <p>We provide the <code>mit_preemptable</code> partition so that nodes owned by a group or PI can be used by researchers outside that group when those nodes are idle. When someone from the group that owns the node runs a job on their partition, the scheduler will stop, or preempt, any job that is running on the lower-priority <code>mit_preemptable</code> partition. Jobs running on <code>mit_preemptable</code> should be checkpointed so that they don't lose their progress when the job is stopped.</p>
 <p>To make your batch jobs requeue if they are stopped on <code>mit_preemptable</code>, add the <code>--requeue</code> flag to your job submission. If your job has a recent checkpoint it should pick up where it left off once additional resources are available. You can read more about <a href="#job-flags">job flags</a> below.</p>
-<h2 id="checking-available-resources">Checking Available Resources</h2>
+<h2 id="checking-available-resources">Checking Available Resources<a class="headerlink" href="#checking-available-resources" title="Permanent link">&para;</a></h2>
 <p>To see what resources are available run <code>sinfo</code>. The <code>sinfo</code> command will show how many nodes are in each state. Nodes in "idle" state have all cores available, nodes in "mix" state have some cores available, and nodes in "alloc" state have no cores or other resources available.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sinfo -p mit_normal
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>PARTITION  AVAIL  TIMELIMIT  NODES  STATE  NODELIST
@@ -1857,11 +1857,11 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>mit_normal_gpu      8                   120                 2063213             gpu:h200:8(S:0-1)   
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>mit_normal_gpu      49                  64                  1031314             gpu:l40s:4(S:0-1)
 </span></code></pre></div>
-<h2 id="running-jobs">Running Jobs</h2>
+<h2 id="running-jobs">Running Jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h2>
 <p>How you run your job depends on the type of job you would like to run. There are two "modes" for running jobs: interactive and batch jobs. Interactive jobs allow you to run interactively on a compute node in a shell. Batch jobs, on the other hand, are for running a pre-written script or executable. Interactive jobs are mainly used for testing, debugging, and interactive data analysis. Batch jobs are the traditional jobs you see on an HPC system and should be used when you want to run a script that doesn't require that you interact with it.</p>
-<h3 id="job-flags">Job Flags</h3>
+<h3 id="job-flags">Job Flags<a class="headerlink" href="#job-flags" title="Permanent link">&para;</a></h3>
 <p>When you start any type of job you specify what resources you need for your job, including cores, memory, GPUs, and other features. You also specify which <a href="#partitions">partition</a> you would like your job to run on. If you don't specify any of these you will get the default resources: 1 core, a small amount of memory, no GPUs, and it will run on the current default partition. See the page on <a href="../requesting-resources/">Requesting Resources</a> for the flags to use to request different types of resources.</p>
-<h3 id="interactive-jobs">Interactive Jobs</h3>
+<h3 id="interactive-jobs">Interactive Jobs<a class="headerlink" href="#interactive-jobs" title="Permanent link">&para;</a></h3>
 <p>The basic command for requesting an interactive job on the <code>mit_normal</code> partition is:</p>
 <div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>salloc -p mit_normal
 </span></code></pre></div>
@@ -1876,7 +1876,7 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="o">[</span>user01@node1806<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>
 </span></code></pre></div>
 <p>Notice how the command prompt changes from <code>[user01@orcd-login001 ~]$</code> to <code>[user01@node1806 ~]$</code>. This indicates that <code>user01</code> has started an interactive job on <code>node1806</code> and any commands issued will run on this node.</p>
-<h3 id="batch-jobs">Batch Jobs</h3>
+<h3 id="batch-jobs">Batch Jobs<a class="headerlink" href="#batch-jobs" title="Permanent link">&para;</a></h3>
 <p>Batch jobs are used to run pre-written scripts or run commands that do not need input from you throughout the run. The first step to running a batch job is to write a job script. Job scripts can be "launched" with the <code>sbatch</code> command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sbatch<span class="w"> </span>myscript.sh
 </span></code></pre></div>
@@ -1900,7 +1900,7 @@
 <li>Set up your environment: Load any modules you need, set environment variables, etc. It is better to set this in your job scripts to ensure consistent environments across jobs. We don't recommend putting these commands in your <code>.bashrc</code> or running them at the command line before you launch your job.</li>
 <li>Run your code or application as you would from the command line.</li>
 </ol>
-<h2 id="checking-job-status">Checking Job Status</h2>
+<h2 id="checking-job-status">Checking Job Status<a class="headerlink" href="#checking-job-status" title="Permanent link">&para;</a></h2>
 <p>To see all your currently running and pending jobs run the <code>squeue --me</code> command: </p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>squeue<span class="w"> </span>--me
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
@@ -1917,7 +1917,7 @@
 <li><code>NODES</code>: The number of nodes your job is using.</li>
 <li><code>NODELIST(REASON)</code>: If your job is running this is the name of the node or nodes that your job is running on. If your job is pending this lists the reason the job is pending. Common pending reasons are "Resources", meaning the resources you've requested aren't yet available, "Priority", meaning there is someone else ahead of you in line to use the resources you've requested. Other reasons are listed in the <a href="https://slurm.schedmd.com/squeue.html#SECTION_JOB-REASON-CODES">Slurm documentation</a>.</li>
 </ul>
-<h2 id="stopping-jobs">Stopping Jobs</h2>
+<h2 id="stopping-jobs">Stopping Jobs<a class="headerlink" href="#stopping-jobs" title="Permanent link">&para;</a></h2>
 <p>You can stop running or pending jobs with the <code>scancel</code> command. You can stop an individual job by providing a job id:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scancel<span class="w"> </span><span class="m">123456</span>
 </span></code></pre></div>
@@ -1928,7 +1928,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>scancel<span class="w"> </span>-u<span class="w"> </span>USERNAME
 </span></code></pre></div>
 <p>where <code>USERNAME</code> is your username.</p>
-<h2 id="retrieving-job-stats">Retrieving Job Stats</h2>
+<h2 id="retrieving-job-stats">Retrieving Job Stats<a class="headerlink" href="#retrieving-job-stats" title="Permanent link">&para;</a></h2>
 <p>You can get information above currently and previously run jobs with the <code>sacct</code> command. This command can be very helpful for troubleshooting job issues, and is particularly helpful to check that you are getting the resources you expect allocated to your job.</p>
 <p>Running <code>sacct</code> with no flags will show some basic information about the jobs that you've run in the past day:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span>USERNAME@orcd-login001<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sacct

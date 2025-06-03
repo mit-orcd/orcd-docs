@@ -1799,11 +1799,11 @@
 
 
 
-<h1 id="example-build-of-the-vasp-software">Example Build of the VASP Software</h1>
-<h2 id="about-vasp">About VASP</h2>
+<h1 id="example-build-of-the-vasp-software">Example Build of the VASP Software<a class="headerlink" href="#example-build-of-the-vasp-software" title="Permanent link">&para;</a></h1>
+<h2 id="about-vasp">About VASP<a class="headerlink" href="#about-vasp" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.vasp.at">VASP</a> is a first principles simulation tool for electronic structure and quantum mechanical molecular dynamics computations. The name VASP is an acronym of Vienna Ab-initio Simulation Package. The VASP software is used in quantum chemistry to simulate the properties and structure of atomic scale materials. VASP can compute
 detailed atomic structure of molecules, finding terms such as bond lengths and vibration frequencies.</p>
-<h2 id="building-vasp-software">Building VASP software</h2>
+<h2 id="building-vasp-software">Building VASP software<a class="headerlink" href="#building-vasp-software" title="Permanent link">&para;</a></h2>
 <p>VASP is distributed as Fortran source code that must be compiled by end-users to create an executable program. This recipe describes how to compile
 VASP using the GNU compiler stack. The recipe shows commands for a Rocky Linux system.</p>
 <div class="admonition note">
@@ -1813,7 +1813,7 @@ VASP using the GNU compiler stack. The recipe shows commands for a Rocky Linux s
 <li>This example assumes you are working with a Rocky Linux environment.</li>
 </ul>
 </div>
-<h3 id="1-extract-vasp-source-code-files">1. Extract VASP source code files</h3>
+<h3 id="1-extract-vasp-source-code-files">1. Extract VASP source code files<a class="headerlink" href="#1-extract-vasp-source-code-files" title="Permanent link">&para;</a></h3>
 <p>Once a licensed copy of VASP has been obtained the source code files must be extracted from the tar file that can be
 downloaded by license holders from the <a href="https://www.vasp.at/sign_in/portal/">VASP portal site</a>. The command</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xzvf<span class="w"> </span>vasp.6.4.3.tgz
@@ -1826,14 +1826,14 @@ downloaded by license holders from the <a href="https://www.vasp.at/sign_in/port
 <summary>Tip</summary>
 <p>For different versions of VASP, the download file name and directory name will be different. In that case, remember to adjust the example commands above accordingly.</p>
 </details>
-<h3 id="2-configure-the-compiler-options-file">2. Configure the compiler options file</h3>
+<h3 id="2-configure-the-compiler-options-file">2. Configure the compiler options file<a class="headerlink" href="#2-configure-the-compiler-options-file" title="Permanent link">&para;</a></h3>
 <p>The VASP software is distributed with multiple example compiler options files. 
 These are in the sub-directory <code>arch/</code>. 
 For this example we will use the GNU compiler options file <code>makefile.include.gnu_omp</code>. 
 To activate the chosen options, copy the options file into the top-level VASP directory.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cp<span class="w"> </span>arch/makefile.include.gnu_omp<span class="w"> </span>makefile.include
 </span></code></pre></div>
-<h3 id="3-activate-the-relevant-modules">3. Activate the relevant modules</h3>
+<h3 id="3-activate-the-relevant-modules">3. Activate the relevant modules<a class="headerlink" href="#3-activate-the-relevant-modules" title="Permanent link">&para;</a></h3>
 <p>To build the VASP program from the licensed source code several tools and libraries are needed. 
 The modules below add the needed software. 
 The <code>gcc</code> and <code>openmpi</code> modules provide compilers (gcc) and computational tools (openmpi) 
@@ -1846,17 +1846,17 @@ The <code>lapack</code>, <code>scalapack</code>, <code>fftw</code> and <code>ope
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>module<span class="w"> </span>load<span class="w"> </span>fftw/3.3.10
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>module<span class="w"> </span>load<span class="w"> </span>openblas/0.3.26
 </span></code></pre></div>
-<h3 id="4-set-environment-variables-that-are-needed-for-compilation">4. Set environment variables that are needed for compilation</h3>
+<h3 id="4-set-environment-variables-that-are-needed-for-compilation">4. Set environment variables that are needed for compilation<a class="headerlink" href="#4-set-environment-variables-that-are-needed-for-compilation" title="Permanent link">&para;</a></h3>
 <p>The compilation scripts that come with VASP include variables that must be set to the cluster's local values. Here we set environment variables to hold those settings.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">SCALAPACK_ROOT</span><span class="o">=</span><span class="sb">`</span>module<span class="w"> </span>-t<span class="w"> </span>show<span class="w">  </span>netlib-scalapack<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>CMAKE_PREFIX_PATH<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="se">\&quot;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">FFTW_ROOT</span><span class="o">=</span><span class="sb">`</span>pkgconf<span class="w"> </span>--variable<span class="o">=</span>prefix<span class="w"> </span>fftw3<span class="sb">`</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nv">OPENBLAS_ROOT</span><span class="o">=</span><span class="k">$(</span>dirname<span class="w"> </span><span class="sb">`</span>pkgconf<span class="w"> </span>--variable<span class="o">=</span>libdir<span class="w"> </span>openblas<span class="sb">`</span><span class="k">)</span>
 </span></code></pre></div>
-<h3 id="5-compile-the-vasp-code">5. Compile the VASP code</h3>
+<h3 id="5-compile-the-vasp-code">5. Compile the VASP code<a class="headerlink" href="#5-compile-the-vasp-code" title="Permanent link">&para;</a></h3>
 <p>To compile the VASP code use the <code>make</code> program, passing it the environment variable settings as shown. The settings shown will also build the Fortran 90 modules that VASP includes.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="nv">OPENBLAS_ROOT</span><span class="o">=</span><span class="nv">$OPENBLAS_ROOT</span><span class="w"> </span><span class="nv">FFTW_ROOT</span><span class="o">=</span><span class="nv">$FFTW_ROOT</span><span class="w"> </span><span class="nv">SCALAPACK_ROOT</span><span class="o">=</span><span class="nv">$SCALAPACK_ROOT</span><span class="w"> </span><span class="nv">MODS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">DEPS</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<h3 id="6-check-the-vasp-executables">6. Check the VASP executables</h3>
+<h3 id="6-check-the-vasp-executables">6. Check the VASP executables<a class="headerlink" href="#6-check-the-vasp-executables" title="Permanent link">&para;</a></h3>
 <p>The above commands should generate VASP executable programs <code>bin/vasp_std</code>, <code>bin/vasp_gam</code> and <code>bin/vasp_ncl</code>. To test that these programs can execute the following commands can be used:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">OPENBLAS_ROOT</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">FFTW_ROOT</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">SCALAPACK_ROOT</span><span class="si">}</span>/lib
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>bin/vasp_std
@@ -1897,7 +1897,7 @@ VASP program can be run. The output shows an error because no input files have b
 </span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>
 </span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>STOP 1
 </span></code></pre></div>
-<h3 id="7-example-scripts-to-compile-and-test">7. Example scripts to compile and test</h3>
+<h3 id="7-example-scripts-to-compile-and-test">7. Example scripts to compile and test<a class="headerlink" href="#7-example-scripts-to-compile-and-test" title="Permanent link">&para;</a></h3>
 <p>The commands above can be combined into scripts as shown below. This example
 scripts that can either be run from the command line or submitted to Slurm 
 as a batch job.</p>
@@ -1929,7 +1929,7 @@ as a batch job.</p>
 </span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
 </span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>srun<span class="w"> </span>./bin/vasp_std
 </span></code></pre></div>
-<h2 id="creating-a-vasp-module">Creating a VASP Module</h2>
+<h2 id="creating-a-vasp-module">Creating a VASP Module<a class="headerlink" href="#creating-a-vasp-module" title="Permanent link">&para;</a></h2>
 <p>It can be convenient to create a module for VASP since it does have several dependencies. Below is an example modulefile. This modulefile assumes you have installed VASP 6.4.3, placed it in <code>$HOME/software/VASP</code>, and used the same dependency modules to build VASP as described in <a href="#3-activate-the-relevant-modules">Step 3 above</a>. If you have installed a different version of VASP, placed it in a different location, or used different dependency modules you will need to adjust the modulefile accordingly.</p>
 <div class="language-lua highlight"><span class="filename">$HOME/software/modulefiles/vasp/6.4.3.lua</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- -*- lua -*-</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">--</span>
@@ -1947,7 +1947,7 @@ as a batch job.</p>
 </span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span><span class="p">,</span><span class="s2">&quot;/orcd/software/core/001/spack/pkg/openblas/0.3.26/ro5tivv/lib:/orcd/software/core/001/spack/pkg/fftw/3.3.10/dg7y4ph/lib:/orcd/software/core/001/spack/pkg/netlib-scalapack/2.2.0/ff5iskg/./lib&quot;</span><span class="p">)</span>
 </span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="s2">&quot;bin/&quot;</span><span class="p">),</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="running-vasp">Running VASP</h2>
+<h2 id="running-vasp">Running VASP<a class="headerlink" href="#running-vasp" title="Permanent link">&para;</a></h2>
 <p>To run VASP create a job script like the one below in the same directory as your input files. You may need to increase <code>ntasks</code> or <code>cpus-per-task</code> or allocation additional resources depending on the size of the problem. This script assumes you have <a href="#creating-a-vasp-module">created a module</a> and placed the modulefile in in <code>$HOME/software/modulefiles</code>. Update the location of your VASP module as needed. VASP has a <a href="https://www.vasp.at/wiki/index.php/Category:Examples">page of examples</a> in their documentation that can be used for testing.</p>
 <div class="language-bash highlight"><span class="filename">run_vasp.sh</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">#SBATCH --time=2:00:00</span>
