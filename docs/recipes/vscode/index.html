@@ -425,6 +425,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#adjust-the-remotessh-extension-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust the RemoteSSH Extension Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-your-config-file" class="md-nav__link">
     <span class="md-ellipsis">
       Setting up your Config File
@@ -1468,6 +1477,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#adjust-the-remotessh-extension-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust the RemoteSSH Extension Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-your-config-file" class="md-nav__link">
     <span class="md-ellipsis">
       Setting up your Config File
@@ -1769,6 +1787,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#adjust-the-remotessh-extension-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust the RemoteSSH Extension Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-your-config-file" class="md-nav__link">
     <span class="md-ellipsis">
       Setting up your Config File
@@ -1863,29 +1890,32 @@
 <h1 id="using-vscode-on-an-orcd-system">Using VSCode on an ORCD System<a class="headerlink" href="#using-vscode-on-an-orcd-system" title="Permanent link">&para;</a></h1>
 <p>VSCode is a convenient IDE for development, and one of its nicest features is its ability to run on a remote system using its RemoteSSH extension. This means you can have the VSCode window on your computer, while the files and anything you run will be on the remote system you are connected to.</p>
 <p>Once you've installed the RemoteSSH extension this is fairly easy to set up. However, it is also very easy to set up in such a way that it is not only slow for you, but it also puts excess load on the login nodes and in turn slows things down for others on that node. Luckily, with a few extra steps you can run VSCode on a compute node where it can have more resources to run and won't impact others as much.</p>
+<h2 id="adjust-the-remotessh-extension-settings">Adjust the RemoteSSH Extension Settings<a class="headerlink" href="#adjust-the-remotessh-extension-settings" title="Permanent link">&para;</a></h2>
+<p>Before you start, it is helpful to adjust VSCode's <a href="vscode://settings/remote.SSH">RemoteSSH Extension settings</a>. Sometimes VS Code may cause you to be locked out of your Engaging account because it makes repeated Duo authentication attempts. To mitigate this behavior, edit a few of the VS Code settings:</p>
+<ul>
+<li><a href="vscode://settings/remote.SSH.connectTimeout">Remote.SSH: Connect Timeout</a>: Set to 60 seconds. Making this longer gives you more time to accept the Duo push before the RemoteSSH extension tries again.</li>
+<li><a href="vscode://settings/remote.SSH.maxReconnectionAttempts">Remote.SSH: Max Reconnection Attempts</a>: Set to 0. This prevents RemoteSSH from trying to reconnect automatically over and over, sending you Duo pushes when you aren't expecting them. This is what usually causes the lockout. When you set this to 0 VSCode will ask you before trying to reconnect. You can also safely set this to 1 to allow it to make a single reconnection attempt.</li>
+</ul>
 <h2 id="setting-up-your-config-file">Setting up your Config File<a class="headerlink" href="#setting-up-your-config-file" title="Permanent link">&para;</a></h2>
 <p>Click the "Open a Remote Window" button in the bottom left corner of your VSCode window (It is a small blue rectangle labeled with <code>&gt;&lt;</code>). In the bar at the top of the page select "Connect to Host...", then "Configure SSH Hosts", and select first option, which will differ depending on your operating system. This will open your config file in a VSCode tab.</p>
 <p>To run on a compute node you will need at least 2 entries in this file. The first will be a login node that you'll "jump" through and the second will be the compute node that is your final destination.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label><label for="__tabbed_1_2">Open Mind</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label><label for="__tabbed_1_2">OpenMind</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>In this config file we are including some settings for <a href="../../accessing-orcd/control-channels/">Control Channels</a>, for convenience. Control channels minimize the number of 2-Factor prompts that you get when connecting.</p>
 <div class="language-yaml highlight"><span class="filename">config</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="l l-Scalar l-Scalar-Plain">Host orcd-login</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">HostName orcd-login001.mit.edu</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">User USERNAME</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="l l-Scalar l-Scalar-Plain">Host orcd-compute</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">HostName orcd-login.mit.edu</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ControlMaster auto</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ControlPath ~/.ssh/%r@%h:%p</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ControlPersist 300s</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">User USERNAME</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">HostName nodename</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ProxyJump orcd-login</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="l l-Scalar l-Scalar-Plain">Host orcd-compute</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">User USERNAME</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">HostName nodename</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ProxyJump orcd-login</span>
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are using one of the login nodes that requires 2-Factor authentication be ready to receive your default 2-Factor prompt when you connect. If you do not respond right away the connection will time out.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use VSCode on a compute node, an SSH key is necessary. If you haven't set up SSH keys yet, refer to the <a href="../../accessing-orcd/ssh-setup/">SSH Key Setup guide</a>.</p>
-</div>
+<p>When make any initial connections you will be asked for your password in the bar at the top of the window, followed by which 2-Factor method you would prefer. Enter "1" for the default method that you've set up. After responding to your 2-factor authentication you should be connected. If you include the Control Channel settings above as long as your initial connection isn't disconnected additional connections won't require you to enter your password or respond to a 2-factor prompt again.</p>
 </div>
 <div class="tabbed-block">
 <div class="language-yaml highlight"><span class="filename">config</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="l l-Scalar l-Scalar-Plain">Host om-login</span>
@@ -1897,12 +1927,12 @@
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">HostName nodename</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ProxyJump om-login</span>
 </span></code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To use VSCode on a compute node, an SSH key is necessary. If you haven't set up SSH keys yet, refer to the <a href="../../accessing-orcd/ssh-setup/">SSH Key Setup guide</a>.</p>
-</div>
-</div>
-</div>
+<p>To use VSCode on a compute node, an SSH key is required. If you haven't set up SSH keys yet, refer to the <a href="../../accessing-orcd/ssh-setup/">SSH Key Setup guide</a>.</p>
 </div>
 <p>Replace <code>USERNAME</code> with your username on the system you are connecting to. We will fill in "nodename" later.</p>
 <h2 id="starting-your-vscode-session-on-a-compute-node">Starting your VSCode Session on a Compute Node<a class="headerlink" href="#starting-your-vscode-session-on-a-compute-node" title="Permanent link">&para;</a></h2>
@@ -1999,19 +2029,15 @@
 <h2 id="other-vscode-best-practices-tips-and-tricks">Other VSCode Best Practices, Tips, and Tricks<a class="headerlink" href="#other-vscode-best-practices-tips-and-tricks" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Avoid running VSCode through RemoteSSH on the login nodes. If you are only editing files this might be okay, although it is not encouraged. Beyond editing files please use a compute node for VSCode, as described on this page.</li>
-<li>Add the specific directories you need to your workspace. VSCode constantly scans all the files files and runs git commands on any local git repositories in your workspace, and it does this recursively. For this reason adding high-level directories to your workspace can slow things down quite a bit. For example, avoid adding your entire home directory or group storage to your VSCode session workspace.</li>
-<li>If you are having trouble authenticating, particularly if you are prompted for a password or 2 Factor authentication options, you can set <code>"remote.SSH.showLoginTerminal": true</code> in your settings.json file. See <a href="https://code.visualstudio.com/docs/remote/troubleshooting#_enabling-alternate-ssh-authentication-methods">this page</a> for more information.</li>
+<li>Add only the specific directories you need to your workspace. VSCode constantly scans all the files files and runs git commands on any local git repositories in your workspace, and it does this recursively. For this reason adding high-level directories to your workspace can slow things down quite a bit. For example, avoid adding your entire home directory or group storage to your VSCode session workspace.</li>
 <li>If VSCode is slow to start up on an ORCD System, check to see whether you are activating a conda environment at login. If you are, run the command <code>conda config --set auto_activate_base false</code> to prevent this. You will only have to do this once.</li>
-<li>Sometimes, VS Code may cause you to be locked out of your Engaging account because it makes repeated Duo authentication attempts. To mitigate this behavior, you can try editing a few of the VS Code settings:<ul>
-<li><a href="vscode://settings/remote.SSH.connectTimeout">Remote.SSH: Connect Timeout</a>: Making this longer gives you more time to accept the Duo push before the RemoteSSH extension tries again. The default is 15 seconds, doubling it to 30 might be a good number to try.</li>
-<li><a href="vscode://settings/remote.SSH.maxReconnectionAttempts">Remote.SSH: Max Reconnection Attempts</a>: This prevents RemoteSSH from trying to reconnect automatically over and over, sending you Duo pushes when you aren't expecting them. This is what usually causes the lockout. I'd set it to 0 or 1 depending on your preference.</li>
+<li>Sometimes, VS Code may cause you to be locked out of your Engaging account because it makes repeated Duo authentication attempts. To mitigate this behavior, edit a few of the VS Code settings:<ul>
+<li><a href="vscode://settings/remote.SSH.connectTimeout">Remote.SSH: Connect Timeout</a>: Set to 60 seconds. Making this longer gives you more time to accept the Duo push before the RemoteSSH extension tries again.</li>
+<li><a href="vscode://settings/remote.SSH.maxReconnectionAttempts">Remote.SSH: Max Reconnection Attempts</a>: Set to 0. This prevents RemoteSSH from trying to reconnect automatically over and over, sending you Duo pushes when you aren't expecting them. This is what usually causes the lockout. When you set this to 0 VSCode will ask before trying to reconnect. You can also safely set this to 1 to allow it to make a single reconnection attempt.</li>
 <li><a href="vscode://settings/remote.SSH.showLoginTerminal">Remote.SSH: Show Login Terminal</a>: Checking this box would let you see useful debugging information while VS Code is starting up.</li>
 </ul>
 </li>
 </ul>
-<!--
-TODO: Add link to Conda best practices once it is written.
--->
 
 
 
@@ -2032,7 +2058,7 @@ TODO: Add link to Conda best practices once it is written.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 5, 2025 20:35:04 UTC">September 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2025 18:26:05 UTC">October 27, 2025</span>
   </span>
 
     
