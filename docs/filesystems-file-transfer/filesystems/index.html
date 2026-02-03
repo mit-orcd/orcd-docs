@@ -14,7 +14,7 @@
         <link rel="prev" href="../../accessing-orcd/control-channels/">
       
       
-        <link rel="next" href="../project-filesystems/">
+        <link rel="next" href="../transferring-files/">
       
       
         
@@ -596,6 +596,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Engaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pi-shared-group-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PI Shared Group Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -624,34 +641,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project-filesystems/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Project Specific Filesystems
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1756,8 +1745,111 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../hosted-hardware/" class="md-nav__link">
+      <a href="../../services/compute-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/storage-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/hosted-hardware/" class="md-nav__link">
         
   
   
@@ -1773,6 +1865,42 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/accessing-group-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accessing Group Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2001,6 +2129,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Engaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pi-shared-group-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PI Shared Group Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2045,7 +2190,7 @@
 <h1 id="general-use-filesystems">General Use Filesystems<a class="headerlink" href="#general-use-filesystems" title="Permanent link">&para;</a></h1>
 <p>Large HPC systems often have different filesystems for different purposes. ORCD systems are no different, and each have their own approach. This page documents these.</p>
 <h2 id="engaging">Engaging<a class="headerlink" href="#engaging" title="Permanent link">&para;</a></h2>
-<p>Users each get a Home Directory that is backed up and meant for important files. An additional larger Pool space is provided for storing larger datasets longer term. <a href="../project-filesystems/">Additional storage can be purchased</a>, and PIs can request an additional 5TB of shared Pool storage for their lab. The Scratch space is meant for data used in actively running jobs. It will be faster to access Scratch during your job for the majority of workloads, but it is not backed up and should not be used for long term storage. Both Pool and Scratch are not backed up. Any files that cannot be easily replaced should either be stored in Home, or backed up outside of Engaging.</p>
+<p>Users each get a Home Directory that is backed up and meant for important files. An additional larger Pool space is provided for storing larger datasets longer term. <a href="../../services/storage-services/">Additional storage can be purchased</a>, and PIs can request an additional 5TB of shared Pool storage for their lab. The Scratch space is meant for data used in actively running jobs. It will be faster to access Scratch during your job for the majority of workloads, but it is not backed up and should not be used for long term storage. Both Pool and Scratch are not backed up. Any files that cannot be easily replaced should either be stored in Home, or backed up outside of Engaging.</p>
 <p>See the table below for a description of each storage space.</p>
 <table>
 <thead>
@@ -2073,6 +2218,13 @@
 <td>Storing larger datasets</td>
 </tr>
 <tr>
+<td>PI Shared Pool <br> Hard Disk</td>
+<td><code>/orcd/pool/&lt;number&gt;/&lt;pikerb&gt;_shared</code></td>
+<td>5 TB</td>
+<td><strong>Not backed up</strong></td>
+<td>Storing larger datasets, shared group storage</td>
+</tr>
+<tr>
 <td>Scratch <br> Flash</td>
 <td><code>/home/&lt;username&gt;/orcd/scratch</code></td>
 <td>1 TB</td>
@@ -2086,6 +2238,9 @@
 <p>Scratch is meant for temporary storage while running compute jobs. It is not meant for long term storage and <strong>is not backed up</strong>. <strong>If you have not logged in for 6 months files in scratch will be deleted</strong>. Any files that you would like to keep long-term should be copied onto another storage location with backup.</p>
 <p>Pool, while meant for longer-term storage than Scratch, is also not backed up.</p>
 </div>
+<h3 id="pi-shared-group-storage">PI Shared Group Storage<a class="headerlink" href="#pi-shared-group-storage" title="Permanent link">&para;</a></h3>
+<p>PIs can request 5TB of additional pool that can be shared with their group. We will set up a <a href="../../services/accessing-group-resources/">Moira list</a> so PIs and their designated group admins can control access to the shared storage.</p>
+<p>If your group needs more than 5TB of storage, or needs additional storage for a specific project, you can <a href="../../services/storage-services/">rent storage</a> from ORCD.</p>
 <h2 id="supercloud">SuperCloud<a class="headerlink" href="#supercloud" title="Permanent link">&para;</a></h2>
 <p>SuperCloud uses Lustre for all central/shared storage (accessible to all nodes in the system). This storage is not backed up. See the SuperCloud <a href="https://supercloud.mit.edu/best-practices-and-performance-tips">Best Practices and Performance Tips</a> page for best practices using the Lustre filesystem. Quotas or limits are set on the storage as guardrails. Individual and group storage use and quotas can been viewed on the <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile Page</a> on the SuperCloud Web Portal (only accessible if you have an account). Additional storage may be granted on a case by case basis. Local disk spaces will be faster than the Lustre shared filesystem, but all are temporary and can only be accessed on the node where they are created.</p>
 <table>
@@ -2213,7 +2368,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2025 13:30:36 UTC">October 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 16, 2026 19:44:04 UTC">January 16, 2026</span>
   </span>
 
     
