@@ -238,7 +238,7 @@
   <span class="md-ellipsis">
     
   
-    ORCD Systems
+    Engaging System
   
 
     
@@ -303,7 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
     
@@ -319,7 +319,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
           </label>
@@ -2306,25 +2306,16 @@
 <p>First, there is a <a href="https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/">Fully Sharded Data Parallel (FSDP)</a> approach to split the model into multiple GPUs so that the memory requirement fits. A shard of the model is stored in each GPU, and communication between GPUs happens during the training process. We will introduce FSDP recipes in the first section. </p>
 <p>However, FSDP does not gain additional speedup beyond the data parallel framework. Better approaches are based on model parallel, which not only splits the model into multiple GPUs but also accelerates the training process with parallel sharded computations. There are various schemes of model parallel, such as pipeline parallel (PP) and tensor parallel (TP). Usually, model parallel is applied on top of data parallel to gain further speedup. In the second section, we will focus on recipes of hybrid Fully Sharded Data Parallel and Tensor Parallel (referred to as FSDP + TP) . </p>
 <h2 id="installing-pytorch">Installing PyTorch<a class="headerlink" href="#installing-pytorch" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <p>First, load a Miniforge module to provide a Python platform with PyTorch and CUDA support preinstalled, 
- <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load miniforge/24.3.0-0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load miniforge/24.3.0-0
 </span></code></pre></div></p>
-</div>
-</div>
-</div>
 <h2 id="fully-sharded-data-parallel">Fully Sharded Data Parallel<a class="headerlink" href="#fully-sharded-data-parallel" title="Permanent link">&para;</a></h2>
 <p>We use <a href="https://github.com/pytorch/examples/tree/main/mnist">an example code</a> to train a convolutional neural network (CNN) with the MNIST data set.</p>
 <p>We will first run the example on a single GPU and then extend it to <a href="https://pytorch.org/tutorials/intermediate/FSDP_tutorial.html">multiple GPUs with FSDP</a>.</p>
 <p>Download the codes <a href="../scripts/torch-gpu-2/mnist_gpu.py">mnist_gpu.py</a> and <a href="../scripts/torch-gpu-2/FSDP_mnist.py">FSDP_mnist.py</a> for these two cases respectively. </p>
 <h3 id="an-example-with-a-single-gpu">An example with a single GPU<a class="headerlink" href="#an-example-with-a-single-gpu" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Engaging</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <p>To run the example on a single GPU, prepare a job script named <code>job.sh</code> like this,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#!/bin/bash
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#!/bin/bash
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>#SBATCH -p mit_normal_gpu
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>#SBATCH --job-name=mnist-gpu
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>#SBATCH -N 1
@@ -2338,11 +2329,8 @@
 </span></code></pre></div></p>
 <p>Here we sepecify the GPU type of H200 with <code>--gres=gpu:h200:1</code>. If one is not particular about the type of GPU, <code>--gres=gpu:1</code> can be used instead. </p>
 <p>Submit the job script,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sbatch job.sh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sbatch job.sh
 </span></code></pre></div></p>
-</div>
-</div>
-</div>
 <p>While the job is running, you can check if the program runs on a GPU. First, check the hostname that it runs on,
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>squeue --me
 </span></code></pre></div>
@@ -2352,11 +2340,8 @@ and then log in to the node,
 and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs/application-analysis/#nvtop"><code>nvtop</code></a> command.</p>
 <h3 id="single-node-multi-gpu-fsdp">Single-node multi-GPU FSDP<a class="headerlink" href="#single-node-multi-gpu-fsdp" title="Permanent link">&para;</a></h3>
 <p>Now we extend this example to multiple GPUs on a single node with FSDP. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Engaging</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <p>Prepare a job script named <code>job.sh</code> like this,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#!/bin/bash
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#!/bin/bash
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#SBATCH -p mit_normal_gpu 
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>#SBATCH --job-name=fsdp
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>#SBATCH -N 1
@@ -2368,12 +2353,9 @@ and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>python FSDP_mnist.py
 </span></code></pre></div>
- then submit it,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sbatch job.sh
+then submit it,
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sbatch job.sh
 </span></code></pre></div></p>
-</div>
-</div>
-</div>
 <p>As set up in the program <code>FSDP_mnist.py</code>, it will run on all GPUs requested in Slurm, that is 2 in this case. That says the model is split into 2 shards, each stored on a GPU, and the training process happens on 2 batches of data simultaneously. Communication between GPUs happens under the hood. </p>
 <h2 id="hybrid-fully-sharded-data-parallel-and-tensor-parallel">Hybrid Fully Sharded Data Parallel and Tensor Parallel<a class="headerlink" href="#hybrid-fully-sharded-data-parallel-and-tensor-parallel" title="Permanent link">&para;</a></h2>
 <p>Tensor parallel can be applied on top of data parallel to gain further speedup. In this section, we introduce recipes of hybrid FSDP and TP.</p>
@@ -2381,11 +2363,8 @@ and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs
 <h3 id="single-node-multi-gpu-fsdp-tp">Single-node multi-GPU FSDP + TP<a class="headerlink" href="#single-node-multi-gpu-fsdp-tp" title="Permanent link">&para;</a></h3>
 <p>First, let's run the example on multiple GPUs within a single node. </p>
 <p>The code <code>fsdp_tp_example.py</code> is set up for this purpose. The TP size is set to be 2 in the code. The total number of GPUs should be equal to a multiple of the TP size, then the FSDP size is equal to the number of GPUs divided by the TP size.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Engaging</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <p>To run this example on multiple GPUs, prepare a job script like this,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#!/bin/bash                                                                                          
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#!/bin/bash                                                                                          
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#SBATCH -p mit_preemptable                                                                           
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>#SBATCH -t 60                                                                                        
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>#SBATCH -N 1                                                                                         
@@ -2400,21 +2379,15 @@ and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>     --rdzv_endpoint=&quot;localhost:1234&quot; \
 </span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>     fsdp_tp_example.py
 </span></code></pre></div>
- then submit it,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sbatch job.sh
+then submit it,
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sbatch job.sh
 </span></code></pre></div></p>
-</div>
-</div>
-</div>
 <p>With the flags <code>--nnodes=1 --nproc-per-node=4</code>, the <code>torchrun</code> command will run the program on 4 GPUs within one node. The training process happens on 2 batches of data with FSDP, and the model is trained with TP sharded computation on 2 GPUs for each batch of data.</p>
 <p>The flags with <code>rdzv</code> (meaning the Rendezvous protocol) are required by <code>torchrun</code> to coordinate multiple processes. The flag <code>--rdzv-id=$SLURM_JOB_ID</code> sets to the <code>rdzv</code> ID to be the job ID, but it can be any random number. The flag <code>--rdzv-endpoint=localhost:1234</code> is to set the host and the port. Use <code>localhost</code> when there is only one node. The port can be any 4- or 5-digit number larger than 1024. </p>
 <h3 id="multi-node-multi-gpu-fsdp-tp">Multi-node multi-GPU FSDP + TP<a class="headerlink" href="#multi-node-multi-gpu-fsdp-tp" title="Permanent link">&para;</a></h3>
 <p>Finally, we run this example on multiple GPUs across multiple nodes. Note that this example requires 8 GPUs which is more than the standard user has access to on Engaging. If you have access to more GPUs, run this example on the corresponding partition.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Engaging</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <p>Prepare a job script like this,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>#!/bin/bash
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>#!/bin/bash
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>#SBATCH -p  mit_normal_gpu
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>#SBATCH -N 2
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>#SBATCH --ntasks-per-node=1
@@ -2437,12 +2410,9 @@ and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>          --rdzv-endpoint=$master_node_ip:1234 \
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>          fsdp_tp_example.py
 </span></code></pre></div>
- then submit it,
- <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sbatch job.sh
+then submit it,
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sbatch job.sh
 </span></code></pre></div></p>
-</div>
-</div>
-</div>
 <p>The configuration of the <code>#SBATCH</code> and <code>torchrun</code> flags is similar to that in <a href="../torch-gpu/">the basic recipe of data parallel</a>. </p>
 <p>The program runs on 8 GPUs with 4 per node. As is set up in the code <code>fsdp_tp_example.py</code>, the training process happens on 4 batches of data with FSDP,  and the model is trained with TP sharded computation on 2 GPUs for each batch of data.</p>
 <details>
@@ -2470,7 +2440,7 @@ and check the GPU usage with the <a href="https://orcd-docs.mit.edu/running-jobs
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 10, 2025 20:49:34 UTC">August 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 11, 2026 21:04:18 UTC">February 11, 2026</span>
   </span>
 
     

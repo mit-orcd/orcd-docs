@@ -238,7 +238,7 @@
   <span class="md-ellipsis">
     
   
-    ORCD Systems
+    Engaging System
   
 
     
@@ -303,7 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
     
@@ -319,7 +319,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
           </label>
@@ -588,49 +588,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#engaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engaging
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Engaging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#pi-shared-group-storage" class="md-nav__link">
     <span class="md-ellipsis">
       
         PI Shared Group Storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supercloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SuperCloud
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openmind" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenMind
       
     </span>
   </a>
@@ -2121,49 +2082,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#engaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engaging
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Engaging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#pi-shared-group-storage" class="md-nav__link">
     <span class="md-ellipsis">
       
         PI Shared Group Storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supercloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SuperCloud
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openmind" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenMind
       
     </span>
   </a>
@@ -2188,9 +2110,13 @@
 
 
 <h1 id="general-use-filesystems">General Use Filesystems<a class="headerlink" href="#general-use-filesystems" title="Permanent link">&para;</a></h1>
-<p>Large HPC systems often have different filesystems for different purposes. ORCD systems are no different, and each have their own approach. This page documents these.</p>
-<h2 id="engaging">Engaging<a class="headerlink" href="#engaging" title="Permanent link">&para;</a></h2>
-<p>Users each get a Home Directory that is backed up and meant for important files. An additional larger Pool space is provided for storing larger datasets longer term. <a href="../../services/storage-services/">Additional storage can be purchased</a>, and PIs can request an additional 5TB of shared Pool storage for their lab. The Scratch space is meant for data used in actively running jobs. It will be faster to access Scratch during your job for the majority of workloads, but it is not backed up and should not be used for long term storage. Both Pool and Scratch are not backed up. Any files that cannot be easily replaced should either be stored in Home, or backed up outside of Engaging.</p>
+<p>Everyone on Engaging gets three spaces to store files: home, pool, and scratch. Each of these have a different purpose, size, and characteristics.</p>
+<ul>
+<li><strong>Home</strong>: Your Home Directory is meant for your most important files, as it is backed up with snapshots. We recommend keeping your software and code in your home directory. Home is located on fast flash storage.</li>
+<li><strong>Pool</strong>: Pool is a larger space meant as a staging area for larger datasets. It is a place to keep files that still need to be on Engaging, but aren't currently being used for computation. Pool is located on disk storage. Pool is <strong>not backed up</strong>.</li>
+<li><strong>Scratch</strong>: Scratch space is meant for data used in actively running jobs. It will be faster to access Scratch during your job for the majority of workloads, but it is <strong>not backed up</strong> and should not be used for long term storage.</li>
+</ul>
+<p>Both Pool and Scratch are <strong>not backed up</strong>. Any files that cannot be easily replaced should either be stored in Home, or backed up outside of Engaging. PIs can request an additional 5TB of shared Pool storage for their lab (see <a href="#pi-shared-group-storage">below</a>) and <a href="../../services/storage-services/">additional storage can be purchased</a>.</p>
 <p>See the table below for a description of each storage space.</p>
 <table>
 <thead>
@@ -2238,116 +2164,9 @@
 <p>Scratch is meant for temporary storage while running compute jobs. It is not meant for long term storage and <strong>is not backed up</strong>. <strong>If you have not logged in for 6 months files in scratch will be deleted</strong>. Any files that you would like to keep long-term should be copied onto another storage location with backup.</p>
 <p>Pool, while meant for longer-term storage than Scratch, is also not backed up.</p>
 </div>
-<h3 id="pi-shared-group-storage">PI Shared Group Storage<a class="headerlink" href="#pi-shared-group-storage" title="Permanent link">&para;</a></h3>
-<p>PIs can request 5TB of additional pool that can be shared with their group. We will set up a <a href="../../services/accessing-group-resources/">Moira list</a> so PIs and their designated group admins can control access to the shared storage.</p>
+<h2 id="pi-shared-group-storage">PI Shared Group Storage<a class="headerlink" href="#pi-shared-group-storage" title="Permanent link">&para;</a></h2>
+<p>PIs can request 5TB of additional pool that can be shared with their group. We will set up a <a href="../../services/accessing-group-resources/">Moira list</a> so PIs and their designated group admins can control access to the shared storage. To request a shared pool space send an email to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#45;&#101;&#110;&#103;&#97;&#103;&#105;&#110;&#103;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#111;&#114;&#99;&#100;&#45;&#104;&#101;&#108;&#112;&#45;&#101;&#110;&#103;&#97;&#103;&#105;&#110;&#103;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a>.</p>
 <p>If your group needs more than 5TB of storage, or needs additional storage for a specific project, you can <a href="../../services/storage-services/">rent storage</a> from ORCD.</p>
-<h2 id="supercloud">SuperCloud<a class="headerlink" href="#supercloud" title="Permanent link">&para;</a></h2>
-<p>SuperCloud uses Lustre for all central/shared storage (accessible to all nodes in the system). This storage is not backed up. See the SuperCloud <a href="https://supercloud.mit.edu/best-practices-and-performance-tips">Best Practices and Performance Tips</a> page for best practices using the Lustre filesystem. Quotas or limits are set on the storage as guardrails. Individual and group storage use and quotas can been viewed on the <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile Page</a> on the SuperCloud Web Portal (only accessible if you have an account). Additional storage may be granted on a case by case basis. Local disk spaces will be faster than the Lustre shared filesystem, but all are temporary and can only be accessed on the node where they are created.</p>
-<table>
-<thead>
-<tr>
-<th>Storage Type</th>
-<th>Path</th>
-<th>Access</th>
-<th>Backed up</th>
-<th>Limits</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Home Directory <br> Lustre</td>
-<td><code>/home/gridsan/&lt;username&gt;</code></td>
-<td>User only</td>
-<td>Not backed up</td>
-<td>See <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile Page</a></td>
-</tr>
-<tr>
-<td>Group Directories <br> Lustre</td>
-<td><code>/home/gridsan/groups/&lt;groupname&gt;</code></td>
-<td>Files shared within a group</td>
-<td>Not backed up</td>
-<td>See <a href="https://txe1-portal.mit.edu/profile/user_profile.php">User Profile Page</a></td>
-</tr>
-<tr>
-<td>Job-specific Temporary Storage <br> Local Disk</td>
-<td>Access using the <code>$TMPDIR</code> environment variable</td>
-<td>User or Group</td>
-<td>Not backed up <br>  Temporary directory created at the start of a job and cleaned up at the end of the job</td>
-<td>NA</td>
-</tr>
-<tr>
-<td>Local Disk Space</td>
-<td>Create the directory <code>/state/partition1/user/$USER</code> as needed</td>
-<td>User or Group</td>
-<td>Not backed up <br> Cleaned up monthly during downtimes</td>
-<td>NA</td>
-</tr>
-</tbody>
-</table>
-<h2 id="openmind">OpenMind<a class="headerlink" href="#openmind" title="Permanent link">&para;</a></h2>
-<p>OpenMind provides a number of different storage options. See the <a href="https://github.mit.edu/MGHPCC/OpenMind/wiki/Which-directory-should-I-use%3F">OpenMind Documentation page on Storage</a> for more information, best practices, and recommendations.</p>
-<table>
-<thead>
-<tr>
-<th>Storage Type</th>
-<th>Path</th>
-<th>Quota</th>
-<th>Backed up</th>
-<th>Purpose/Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Home Directory</td>
-<td><code>/home/&lt;username&gt;</code></td>
-<td>20 GB</td>
-<td>Backed up</td>
-<td>Use for very important files. Physically located on Flash 2.</td>
-</tr>
-<tr>
-<td>Flash 1</td>
-<td><code>/om/user/&lt;username&gt;</code> (individual users) and <code>/om/group/&lt;groupname&gt;</code> (groups)</td>
-<td>Per group</td>
-<td>Backed up</td>
-<td>Fast internal storage</td>
-</tr>
-<tr>
-<td>Flash 1 Scratch</td>
-<td><code>/om/scratch/&lt;week-day&gt;</code></td>
-<td>N/A</td>
-<td>Not backed up <br> purged 3 weeks after creation</td>
-<td>Scratch space</td>
-</tr>
-<tr>
-<td>Flash 2</td>
-<td><code>/om2/user/&lt;username&gt;</code> (individual users) and <code>/om2/group/&lt;groupname&gt;</code> (groups)</td>
-<td>Per group</td>
-<td>Backed up</td>
-<td>Fast internal storage</td>
-</tr>
-<tr>
-<td>Flash 2 Scratch</td>
-<td><code>/om2/scratch/&lt;week-day&gt;</code></td>
-<td>N/A</td>
-<td>Not backed up <br> purged 2 weeks after creation</td>
-<td>Scratch space</td>
-</tr>
-<tr>
-<td>NFS</td>
-<td><code>/om3</code>, <code>/om4</code>, <code>/om5</code></td>
-<td>Per group</td>
-<td>Backed up</td>
-<td>Slow internal long-term storage</td>
-</tr>
-<tr>
-<td>NESE</td>
-<td><code>/nese</code></td>
-<td>Per group</td>
-<td>Backed up</td>
-<td>Slow internal long-term storage</td>
-</tr>
-</tbody>
-</table>
 
 
 
@@ -2368,7 +2187,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 16, 2026 19:44:04 UTC">January 16, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 12, 2026 17:12:13 UTC">February 12, 2026</span>
   </span>
 
     

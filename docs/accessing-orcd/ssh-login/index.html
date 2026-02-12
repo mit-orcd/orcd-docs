@@ -238,7 +238,7 @@
   <span class="md-ellipsis">
     
   
-    ORCD Systems
+    Engaging System
   
 
     
@@ -305,7 +305,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
     
@@ -321,7 +321,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
           </label>
@@ -2199,10 +2199,10 @@
 
 
 <h1 id="logging-in-with-ssh-via-terminal">Logging in with SSH via Terminal<a class="headerlink" href="#logging-in-with-ssh-via-terminal" title="Permanent link">&para;</a></h1>
-<p>You can log into our systems via SSH through your local terminal. Using SSH in a terminal or command line window on your desktop is the traditional way to access HPC Systems. This method offers the most flexibility, allowing you to start interactive and batch jobs to run your code, download data, and install packages.</p>
+<p>You can log into Engaging via SSH through your local terminal. Using SSH in a terminal or command line window on your desktop is the traditional way to access HPC Systems. This method offers the most flexibility, allowing you to start interactive and batch jobs to run your code, download data, and install packages.</p>
 <h2 id="terminal-by-operating-system">Terminal by Operating System<a class="headerlink" href="#terminal-by-operating-system" title="Permanent link">&para;</a></h2>
 <p>A terminal window is a window with a command line interface. </p>
-<p>To log into our systems, we use the terminal to SSH into the system. SSH (Secure Shell) is the primary way to log into remote systems. Once you initiate the SSH command, the shell in your terminal will no longer run on your computer but on the remote system. Authentication is required, either using a password or SSH keys. To set up SSH keys, please refer to the <a href="../ssh-setup/">SSH Key Setup Page</a>.</p>
+<p>To log into Engaging, we use SSH in the terminal. SSH (Secure Shell) is the primary way to log into remote systems. Once you initiate the SSH command, the shell in your terminal will no longer run on your computer but on the remote system. Authentication is required, either using a password or SSH keys. To set up SSH keys, please refer to the <a href="../ssh-setup/">SSH Key Setup Page</a>.</p>
 <p>Follow the directions below based on your operating system:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
@@ -2218,7 +2218,7 @@
 <p>You have two options:  </p>
 <ol>
 <li><strong>Windows Command Prompt (CMD):</strong> Comes with all Windows computers and supports SSH with little to no setup. However, it lacks some tools for transferring files and uses different commands than Linux.  </li>
-<li><strong>Windows Subsystem for Linux (WSL) with Ubuntu</strong>: A full Linux terminal that requires some setup but supports all commands used to interact with SuperCloud.</li>
+<li><strong>Windows Subsystem for Linux (WSL) with Ubuntu</strong>: A full Linux terminal that requires some setup but supports all commands used to interact with Engaging.</li>
 </ol>
 <p>To check if CMD has SSH enabled, run the command <code>ssh</code>. If SSH is not enabled, follow the instructions on this <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">Page</a> to set it up.</p>
 <p>If you want to use WSL, follow the instructions on this <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Page</a> to enable WSL and install a Linux distribution of your choice. If you don't have a preference, Ubuntu is a good place to start. If you have any questions about WSL, there is a good chance they are answered in their <a href="https://learn.microsoft.com/en-us/windows/wsl/faq">FAQ</a>.</p>
@@ -2228,12 +2228,8 @@
 </div>
 </div>
 <h2 id="logging-in-via-ssh">Logging in via SSH<a class="headerlink" href="#logging-in-via-ssh" title="Permanent link">&para;</a></h2>
-<p>Once you have your terminal set up for your specific operating system, you can use SSH to access our HPC systems. Follow the commands below for your desired system.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Engaging</label><label for="__tabbed_2_2">SuperCloud</label><label for="__tabbed_2_3">OpenMind</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>You can login to Engaging via the command line with the SSH command:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>@orcd-login.mit.edu
+<p>Once you have your terminal set up for your specific operating system, you can use SSH to access Engaging via the command line with the command:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>@orcd-login.mit.edu
 </span></code></pre></div>
 Replace <code>[username]</code> with your MIT Kerberos username.</p>
 <p>Connecting requires Two-Factor Authentication, your MIT Kerberos password and Duo. You can reduce the number of times you need to do Two-Factor Authentication by using <a href="../control-channels/">SSH Control Channels</a>.</p>
@@ -2246,32 +2242,7 @@ Replace <code>[username]</code> with your MIT Kerberos username.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You will be prompted to enter your MIT Kerberos password if you have not set up SSH keys. To set them up, please refer to our <a href="../ssh-setup/">SSH Key Setup Page</a>.</p>
-</div>
-</div>
-<div class="tabbed-block">
-<p>Accessing the SuperCloud system through SSH requires that your public ssh-key has been added to the <code>authorized_keys</code> file in your SuperCloud account. Follow the instructions on <a href="https://mit-supercloud.github.io/supercloud-docs/requesting-account/#generating-ssh-keys">this page</a> to create your keys and add them to your account.</p>
-<p>If you have any issues connecting to the system, please send an email to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#101;&#114;&#99;&#108;&#111;&#117;&#100;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;">&#115;&#117;&#112;&#101;&#114;&#99;&#108;&#111;&#117;&#100;&#64;&#109;&#105;&#116;&#46;&#101;&#100;&#117;</a>.</p>
-<p>To connect to SuperCloud once your SSH keys are setup, follow these steps:  </p>
-<ol>
-<li>Open a command line terminal window.</li>
-<li>Enter the following command, replacing <code>[username]</code> with your SuperCloud username:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>@txe1-login.mit.edu
-</span></code></pre></div></li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>To login to OpenMind, you must first be connected to the MIT Wi-Fi or MIT VPN. For further instructions, refer to this <a href="https://github.mit.edu/MGHPCC/OpenMind/wiki/How-to-log-in-Openmind%3F">page</a>.</p>
-<p>To login to OpenMind via the command line, run the SSH command:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>@openmind.mit.edu
-</span></code></pre></div>
-Replace <code>[username]</code> with your MIT Kerberos username. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You will be prompted to enter your MIT Kerberos password if you have not set up SSH keys. To set them up, please refer to our <a href="../ssh-setup/">SSH Key Setup Page</a>.</p>
-</div>
-</div>
-</div>
+<p>You will be prompted to enter your MIT Kerberos password even if you have set up SSH keys. To set them up, please refer to our <a href="../ssh-setup/">SSH Key Setup Page</a>. You can reduce the number of times you need to do Two-Factor Authentication by using <a href="../control-channels/">SSH Control Channels</a>.</p>
 </div>
 
 
@@ -2293,7 +2264,7 @@ Replace <code>[username]</code> with your MIT Kerberos username. </p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2025 18:10:18 UTC">October 23, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 11, 2026 22:05:03 UTC">February 11, 2026</span>
   </span>
 
     

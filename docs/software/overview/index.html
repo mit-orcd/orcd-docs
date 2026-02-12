@@ -238,7 +238,7 @@
   <span class="md-ellipsis">
     
   
-    ORCD Systems
+    Engaging System
   
 
     
@@ -303,7 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
     
@@ -319,7 +319,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Accessing ORCD Systems
+    Accessing Engaging
   
 
           </label>
@@ -2221,7 +2221,7 @@
 
 
 <h1 id="software-overview">Software Overview<a class="headerlink" href="#software-overview" title="Permanent link">&para;</a></h1>
-<p>Each ORCD system has its own software stack. Many basic and commonly used software and libraries are already installed, so it is good to check before spending the time to install it yourself. This page discusses the general overview of what kinds of software are supported and points you to how to use them and what to do if what you need isn't there.</p>
+<p>Engaging has its own software stack. Many basic and commonly used software and libraries are already installed, so it is good to check before spending the time to install it yourself. This page discusses the general overview of what kinds of software are supported and points you to how to use them and what to do if what you need isn't there.</p>
 <h2 id="software-landscape">Software Landscape<a class="headerlink" href="#software-landscape" title="Permanent link">&para;</a></h2>
 <p>While the software stack will be different on each system, there are three general classes of software:</p>
 <table>
@@ -2246,22 +2246,9 @@
 </tr>
 </tbody>
 </table>
-<p>Each individual ORCD system may not label or organize their software in this way. However, this is the support model that will be used going forward. Engaging, in particular, organizes its software in this way.</p>
-<p>Here are some general notes by system on this for Engaging and SuperCloud. Click on the tab for the system you are interested in:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Engaging</label><label for="__tabbed_1_2">SuperCloud</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Engaging nodes are one of two operating systems: Centos 7 (<code>sched_mit_hill</code> partition) and Rocky 8 (<code>mit_normal</code>, <code>mit_normal_gpu</code>, <code>mit_preemptable</code>, and <code>mit_quicktest</code> partitions). Each operating system has its own software stack.</p>
-<p>Centos 7 has been around for longer, so it has more software installed. These nodes have a very large list of <a href="../modules/">modules</a>, older ones that no longer work have not necessarily been removed but can be considered deprecated. Centos 7 nodes will either be retired or migrated to Rocky 8 in the near future, so when given the choice use Rocky 8 nodes.</p>
-<p>Rocky 8 nodes have a significantly shorter list of modules and are organized into core, community, and deprecated. Core software will be displayed by default, community and deprecated software will require a "module use" command to display. See the page on <a href="../modules/">modules</a> for more information.</p>
-</div>
-<div class="tabbed-block">
-<p>The SuperCloud software stack is managed by the Lincoln Laboratory Supercomputing Center. The modules listed are considered "core" software. Deprecated software that was part of the core stack is removed from the system. "Community" software is provided in the llgrid_beta directory in the groups location. Anyone can use them but they are not officially supported.</p>
-</div>
-</div>
-</div>
+<p>Some older nodes on Engaging have a different software stack with older software versions. These nodes run an older operating system (CentOS 7). Software built for the older operating system is not expected to work on the newer nodes and is no longer supported.</p>
 <h2 id="steps-for-getting-software">Steps for Getting Software<a class="headerlink" href="#steps-for-getting-software" title="Permanent link">&para;</a></h2>
-<p>One of the first steps for getting a workflow running on a new system is to set up any software or packages needed to run it. Here are a few steps to do that on an ORCD system.</p>
+<p>One of the first steps for getting a workflow running on a new system is to set up any software or packages needed to run it. Here are a few steps to do that on Engaging.</p>
 <h3 id="check-if-the-software-or-package-is-already-installed">Check if the Software or Package is Already Installed<a class="headerlink" href="#check-if-the-software-or-package-is-already-installed" title="Permanent link">&para;</a></h3>
 <p>As mentioned above, there is a lot of software already installed. Using the software we've installed saves you time. This software may also perform better or be better configured to use on the system. For example, it may be installed in a faster part of the filesystem or configured to use special hardware available on the cluster.</p>
 <p>For software check the <code>module avail</code> command (see the page on <a href="../modules/">modules</a> for more information). Some software is available without a module, you can check if a particular command is available using the <code>which</code> command at the command line. For example, run <code>which git</code> to see if the <code>git</code> command is available. If it is, the path to the <code>git</code> command will print to the screen.</p>
@@ -2297,7 +2284,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 5, 2025 20:35:04 UTC">September 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 11, 2026 21:46:52 UTC">February 11, 2026</span>
   </span>
 
     
